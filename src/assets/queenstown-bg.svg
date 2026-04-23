@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334">
+<defs>
+  <linearGradient id="qsky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a1e40"/>
+    <stop offset="30%" stop-color="#1a4a90"/>
+    <stop offset="60%" stop-color="#3a80c8"/>
+    <stop offset="82%" stop-color="#7ab8e0"/>
+    <stop offset="100%" stop-color="#c0dff0"/>
+  </linearGradient>
+  <linearGradient id="qlake" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#12a8c8"/>
+    <stop offset="55%" stop-color="#0c7090"/>
+    <stop offset="100%" stop-color="#084858"/>
+  </linearGradient>
+  <linearGradient id="qmtn" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#242050"/>
+    <stop offset="100%" stop-color="#181638"/>
+  </linearGradient>
+  <linearGradient id="qfar" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#6070b8"/>
+    <stop offset="100%" stop-color="#4858a0"/>
+  </linearGradient>
+  <linearGradient id="qshore" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#387830"/>
+    <stop offset="100%" stop-color="#285820"/>
+  </linearGradient>
+</defs>
+
+<!-- Sky -->
+<rect width="750" height="1334" fill="url(#qsky)"/>
+
+<!-- Stars -->
+<g fill="#ffffff">
+  <circle cx="38" cy="48" r="1.5" opacity="0.8"/>
+  <circle cx="112" cy="28" r="1" opacity="0.7"/>
+  <circle cx="178" cy="68" r="1.5" opacity="0.6"/>
+  <circle cx="276" cy="38" r="1" opacity="0.8"/>
+  <circle cx="368" cy="22" r="2" opacity="0.7"/>
+  <circle cx="478" cy="54" r="1" opacity="0.6"/>
+  <circle cx="578" cy="32" r="1.5" opacity="0.8"/>
+  <circle cx="668" cy="58" r="1" opacity="0.7"/>
+  <circle cx="718" cy="28" r="1.5" opacity="0.6"/>
+  <circle cx="88" cy="98" r="1" opacity="0.5"/>
+  <circle cx="308" cy="88" r="1" opacity="0.6"/>
+  <circle cx="548" cy="78" r="1.5" opacity="0.5"/>
+  <circle cx="428" cy="112" r="1" opacity="0.7"/>
+  <circle cx="138" cy="128" r="1" opacity="0.5"/>
+  <circle cx="648" cy="108" r="1" opacity="0.6"/>
+  <circle cx="240" cy="55" r="1.2" opacity="0.6"/>
+  <circle cx="510" cy="145" r="1" opacity="0.5"/>
+</g>
+
+<!-- Paraglider -->
+<ellipse cx="590" cy="288" rx="36" ry="13" fill="#e83838" opacity="0.88"/>
+<path d="M 590,301 Q 585,328 582,352" stroke="#aaa" stroke-width="1.5" fill="none" opacity="0.7"/>
+<ellipse cx="581" cy="358" rx="7" ry="10" fill="#f0c058" opacity="0.85"/>
+
+<!-- Far background mountains -->
+<polygon points="
+  0,565 62,478 118,498 176,448 248,468 312,428 382,452 452,418 532,442 602,412 672,438 750,418
+  750,590 0,590
+" fill="url(#qfar)" opacity="0.62"/>
+
+<!-- The Remarkables - main jagged range -->
+<polygon points="
+  0,635 32,572 62,592 98,512 124,538 158,462 180,490 212,412 238,442 268,376 290,408 318,350 342,380 368,332 393,362 418,344 445,370 472,352 500,380 526,358 552,378 578,362 608,388 638,404 668,422 702,448 732,458 750,448
+  750,655 0,655
+" fill="url(#qmtn)"/>
+
+<!-- Snow caps -->
+<polygon points="368,332 352,365 386,365" fill="#dce8f8"/>
+<polygon points="318,350 302,382 335,382" fill="#e0ecf8"/>
+<polygon points="268,376 252,408 286,408" fill="#dce8f8"/>
+<polygon points="418,344 403,370 434,370" fill="#d8e4f2"/>
+<polygon points="472,352 457,380 488,380" fill="#dce8f8"/>
+<polygon points="212,412 198,440 228,440" fill="#d4e0f0" opacity="0.9"/>
+<polygon points="158,462 145,488 172,488" fill="#ccdaf0" opacity="0.8"/>
+<polyline points="303,382 318,350 342,380" stroke="#e0ecf8" stroke-width="2.5" fill="none"/>
+<polyline points="353,365 368,332 393,362" stroke="#e4eef8" stroke-width="2.5" fill="none"/>
+<polyline points="404,370 418,344 445,370" stroke="#dce8f8" stroke-width="2" fill="none"/>
+
+<!-- Green hills flanking lake -->
+<path d="M 0,655 Q 80,605 165,622 Q 245,640 285,662 L 285,755 Q 160,722 0,742 Z" fill="url(#qshore)"/>
+<path d="M 750,645 Q 678,592 608,618 Q 538,642 492,668 L 492,762 Q 602,732 750,752 Z" fill="url(#qshore)"/>
+
+<!-- Lake Wakatipu -->
+<path d="M 0,732 Q 100,702 252,718 Q 376,732 502,718 Q 628,702 750,722 L 750,1058 Q 628,1035 502,1050 Q 376,1062 252,1048 Q 126,1032 0,1052 Z" fill="url(#qlake)"/>
+
+<!-- Lake shimmer -->
+<line x1="72" y1="795" x2="218" y2="790" stroke="#48c8e0" stroke-width="7" stroke-linecap="round" opacity="0.32"/>
+<line x1="298" y1="812" x2="422" y2="808" stroke="#48c8e0" stroke-width="6" stroke-linecap="round" opacity="0.28"/>
+<line x1="522" y1="798" x2="642" y2="794" stroke="#48c8e0" stroke-width="6" stroke-linecap="round" opacity="0.28"/>
+<line x1="148" y1="875" x2="258" y2="872" stroke="#48c8e0" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+<line x1="432" y1="864" x2="562" y2="860" stroke="#48c8e0" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+
+<!-- Mountain reflection -->
+<polygon points="232,732 262,762 292,750 322,778 352,758 382,782 412,762 442,752 472,740 472,732" fill="#0a4a62" opacity="0.18"/>
+
+<!-- Pine trees left -->
+<g fill="#1a4828">
+  <polygon points="18,722 33,668 48,722"/>
+  <polygon points="48,726 64,672 80,726"/>
+  <polygon points="80,723 97,668 114,723"/>
+  <polygon points="112,726 129,672 146,726"/>
+  <polygon points="144,724 162,669 180,724"/>
+  <rect x="31" y="720" width="4" height="12" fill="#1a2e18"/>
+  <rect x="62" y="724" width="4" height="12" fill="#1a2e18"/>
+  <rect x="94" y="721" width="4" height="12" fill="#1a2e18"/>
+  <rect x="127" y="724" width="4" height="12" fill="#1a2e18"/>
+  <rect x="160" y="722" width="4" height="12" fill="#1a2e18"/>
+</g>
+
+<!-- Pine trees right -->
+<g fill="#1a4828">
+  <polygon points="568,716 584,662 600,716"/>
+  <polygon points="600,720 617,664 634,720"/>
+  <polygon points="633,717 650,662 667,717"/>
+  <polygon points="665,720 682,665 699,720"/>
+  <polygon points="697,718 714,664 731,718"/>
+  <rect x="582" y="714" width="4" height="12" fill="#1a2e18"/>
+  <rect x="615" y="718" width="4" height="12" fill="#1a2e18"/>
+  <rect x="648" y="715" width="4" height="12" fill="#1a2e18"/>
+  <rect x="680" y="718" width="4" height="12" fill="#1a2e18"/>
+  <rect x="713" y="716" width="4" height="12" fill="#1a2e18"/>
+</g>
+
+<!-- Queenstown waterfront buildings -->
+<!-- Church / St Peter's -->
+<rect x="230" y="802" width="22" height="48" fill="#d8c898" rx="1"/>
+<polygon points="230,802 241,784 252,802" fill="#c0b07a"/>
+<rect x="239" y="771" width="4" height="15" fill="#a09060"/>
+<rect x="236" y="779" width="10" height="2.5" fill="#a09060"/>
+
+<!-- Hotel / large building -->
+<rect x="257" y="792" width="36" height="58" fill="#c86040" rx="1"/>
+<polygon points="257,792 275,775 293,792" fill="#a04830"/>
+<rect x="264" y="800" width="9" height="11" fill="#f8e090" opacity="0.75"/>
+<rect x="277" y="800" width="9" height="11" fill="#f8e090" opacity="0.75"/>
+<rect x="264" y="816" width="9" height="11" fill="#f8e090" opacity="0.75"/>
+<rect x="277" y="816" width="9" height="11" fill="#f8e090" opacity="0.75"/>
+
+<!-- Purple building -->
+<rect x="297" y="802" width="30" height="48" fill="#7060a8" rx="1"/>
+<polygon points="297,802 312,788 327,802" fill="#5848a0"/>
+<rect x="303" y="810" width="8" height="10" fill="#c0b0f0" opacity="0.65"/>
+<rect x="315" y="810" width="8" height="10" fill="#c0b0f0" opacity="0.65"/>
+<rect x="303" y="825" width="8" height="10" fill="#c0b0f0" opacity="0.65"/>
+
+<!-- Amber building -->
+<rect x="331" y="798" width="33" height="52" fill="#d49048" rx="1"/>
+<polygon points="331,798 347,782 363,798" fill="#b06828"/>
+<rect x="338" y="807" width="9" height="11" fill="#f8e098" opacity="0.75"/>
+<rect x="351" y="807" width="9" height="11" fill="#f8e098" opacity="0.75"/>
+<rect x="338" y="822" width="9" height="11" fill="#f8e098" opacity="0.75"/>
+
+<!-- Green building -->
+<rect x="368" y="806" width="27" height="44" fill="#508858" rx="1"/>
+<polygon points="368,806 381,793 394,806" fill="#386040"/>
+<rect x="374" y="814" width="8" height="10" fill="#a0d8b0" opacity="0.65"/>
+<rect x="386" y="814" width="7" height="10" fill="#a0d8b0" opacity="0.65"/>
+
+<!-- Red-orange building -->
+<rect x="399" y="810" width="26" height="40" fill="#d06858" rx="1"/>
+<polygon points="399,810 412,799 425,810" fill="#a84838"/>
+<rect x="405" y="818" width="8" height="10" fill="#f0c0a0" opacity="0.65"/>
+<rect x="417" y="818" width="7" height="10" fill="#f0c0a0" opacity="0.65"/>
+
+<!-- Teal small building -->
+<rect x="429" y="814" width="22" height="36" fill="#3888a0" rx="1"/>
+<polygon points="429,814 440,804 451,814" fill="#286888"/>
+<rect x="434" y="822" width="7" height="9" fill="#a0d8e8" opacity="0.65"/>
+
+<!-- Waterfront promenade -->
+<rect x="220" y="848" width="250" height="7" fill="#c8c0a8" opacity="0.55"/>
+
+<!-- Boats on lake -->
+<!-- Sailing boat -->
+<ellipse cx="155" cy="832" rx="24" ry="8" fill="#e8d058"/>
+<rect x="153" y="812" width="3" height="22" fill="#c0a030"/>
+<polygon points="155,814 176,820 155,825" fill="#e0f0f8" opacity="0.88"/>
+<!-- Steamboat TSS Earnslaw -->
+<ellipse cx="558" cy="852" rx="30" ry="9" fill="#c85828"/>
+<rect x="546" y="832" width="26" height="22" fill="#b04820" rx="2"/>
+<rect x="558" y="820" width="9" height="14" fill="#888" rx="2"/>
+<ellipse cx="563" cy="820" rx="5" ry="4" fill="#aaa"/>
+<line x1="563" y1="816" x2="563" y2="806" stroke="#666" stroke-width="2"/>
+
+<!-- Gondola cable -->
+<line x1="448" y1="495" x2="398" y2="820" stroke="#777" stroke-width="1.5" opacity="0.48" stroke-dasharray="5,3"/>
+<g opacity="0.68">
+  <rect x="438" y="552" width="17" height="13" rx="3" fill="#444"/>
+  <rect x="428" y="626" width="17" height="13" rx="3" fill="#444"/>
+  <rect x="418" y="700" width="17" height="13" rx="3" fill="#444"/>
+  <rect x="408" y="770" width="17" height="13" rx="3" fill="#444"/>
+</g>
+<rect x="437" y="486" width="23" height="16" rx="3" fill="#555" opacity="0.7"/>
+
+<!-- Foreground green bank -->
+<path d="M 0,1048 Q 200,1018 375,1035 Q 552,1052 750,1035 L 750,1334 L 0,1334 Z" fill="#285820"/>
+
+<!-- Lupin flowers at bottom -->
+<g opacity="0.85">
+  <rect x="28" y="1065" width="5" height="36" fill="#387040"/>
+  <ellipse cx="30" cy="1060" rx="5" ry="13" fill="#b040b8"/>
+  <rect x="52" y="1058" width="5" height="30" fill="#387040"/>
+  <ellipse cx="54" cy="1053" rx="4" ry="11" fill="#7848d0"/>
+  <rect x="72" y="1063" width="5" height="34" fill="#387040"/>
+  <ellipse cx="74" cy="1058" rx="4" ry="12" fill="#e09038"/>
+  <rect x="98" y="1060" width="5" height="32" fill="#387040"/>
+  <ellipse cx="100" cy="1055" rx="5" ry="11" fill="#c03890"/>
+  <rect x="120" y="1066" width="4" height="28" fill="#387040"/>
+  <ellipse cx="122" cy="1062" rx="4" ry="10" fill="#e84848"/>
+  <rect x="142" y="1062" width="5" height="30" fill="#387040"/>
+  <ellipse cx="144" cy="1057" rx="4" ry="11" fill="#5858e0"/>
+
+  <rect x="598" y="1058" width="5" height="36" fill="#387040"/>
+  <ellipse cx="600" cy="1053" rx="5" ry="13" fill="#b040b8"/>
+  <rect x="622" y="1063" width="5" height="30" fill="#387040"/>
+  <ellipse cx="624" cy="1058" rx="4" ry="11" fill="#7848d0"/>
+  <rect x="644" y="1060" width="5" height="34" fill="#387040"/>
+  <ellipse cx="646" cy="1055" rx="5" ry="12" fill="#f09030"/>
+  <rect x="668" y="1065" width="5" height="28" fill="#387040"/>
+  <ellipse cx="670" cy="1060" rx="4" ry="10" fill="#c03890"/>
+  <rect x="690" y="1062" width="5" height="32" fill="#387040"/>
+  <ellipse cx="692" cy="1057" rx="4" ry="11" fill="#e0f050" opacity="0.9"/>
+  <rect x="714" y="1059" width="4" height="30" fill="#387040"/>
+  <ellipse cx="716" cy="1054" rx="4" ry="11" fill="#e05070"/>
+</g>
+</svg>

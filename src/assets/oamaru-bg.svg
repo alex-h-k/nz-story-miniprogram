@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334">
+<defs>
+  <linearGradient id="odusk" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#2a1050"/>
+    <stop offset="22%" stop-color="#7028a0"/>
+    <stop offset="45%" stop-color="#d84828"/>
+    <stop offset="65%" stop-color="#f07828"/>
+    <stop offset="82%" stop-color="#f8b848"/>
+    <stop offset="100%" stop-color="#f8e080"/>
+  </linearGradient>
+  <linearGradient id="oocean" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#186090"/>
+    <stop offset="55%" stop-color="#0c4060"/>
+    <stop offset="100%" stop-color="082840"/>
+  </linearGradient>
+  <linearGradient id="orock" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#888070"/>
+    <stop offset="100%" stop-color="#5a5040"/>
+  </linearGradient>
+  <linearGradient id="oshore" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#483830"/>
+    <stop offset="100%" stop-color="#302820"/>
+  </linearGradient>
+</defs>
+
+<!-- Dusk sky -->
+<rect width="750" height="1334" fill="url(#odusk)"/>
+
+<!-- Stars (faint, dusk) -->
+<g fill="#ffffff" opacity="0.45">
+  <circle cx="78" cy="75" r="2"/>
+  <circle cx="195" cy="55" r="1.5"/>
+  <circle cx="318" cy="95" r="1"/>
+  <circle cx="418" cy="42" r="2"/>
+  <circle cx="98" cy="145" r="1.5"/>
+  <circle cx="678" cy="88" r="1.5"/>
+  <circle cx="718" cy="125" r="1"/>
+  <circle cx="558" cy="65" r="1.5"/>
+  <circle cx="248" cy="38" r="1"/>
+  <circle cx="488" cy="110" r="1"/>
+</g>
+
+<!-- Setting sun -->
+<circle cx="585" cy="515" r="48" fill="#f8d838" opacity="0.92"/>
+<circle cx="585" cy="515" r="64" fill="#f8c028" opacity="0.28"/>
+<circle cx="585" cy="515" r="80" fill="#f8a018" opacity="0.14"/>
+
+<!-- Dusk clouds -->
+<ellipse cx="148" cy="275" rx="125" ry="32" fill="#b84888" opacity="0.52"/>
+<ellipse cx="290" cy="252" rx="95" ry="24" fill="#c858a0" opacity="0.42"/>
+<ellipse cx="448" cy="298" rx="108" ry="28" fill="#b04080" opacity="0.46"/>
+<ellipse cx="655" cy="238" rx="82" ry="22" fill="#d870b8" opacity="0.4"/>
+<ellipse cx="82" cy="320" rx="68" ry="18" fill="#a03878" opacity="0.38"/>
+
+<!-- Sun path / light rays on water -->
+<polygon points="548,528 622,528 648,582 585,568 522,582" fill="#f8d058" opacity="0.38"/>
+
+<!-- Victorian limestone building (right background) -->
+<g opacity="0.58">
+  <rect x="498" y="372" width="85" height="158" fill="#281640" rx="2"/>
+  <rect x="536" y="350" width="44" height="178" fill="#221438" rx="2"/>
+  <polygon points="496,374 583,346 670,374" fill="#1c1030" opacity="0.8"/>
+  <!-- Arched windows glowing -->
+  <rect x="508" y="395" width="13" height="20" rx="6" fill="#f8c058" opacity="0.45"/>
+  <rect x="528" y="395" width="13" height="20" rx="6" fill="#f8c058" opacity="0.45"/>
+  <rect x="548" y="395" width="13" height="20" rx="6" fill="#f8c058" opacity="0.45"/>
+  <rect x="568" y="395" width="13" height="20" rx="6" fill="#f8c058" opacity="0.45"/>
+  <rect x="508" y="428" width="13" height="18" rx="6" fill="#f8c058" opacity="0.35"/>
+  <rect x="548" y="428" width="13" height="18" rx="6" fill="#f8c058" opacity="0.35"/>
+  <!-- Clock tower -->
+  <rect x="548" y="305" width="28" height="48" fill="#1c1030"/>
+  <circle cx="562" cy="322" r="11" fill="#f8c058" opacity="0.42"/>
+  <polygon points="548,307 562,290 576,307" fill="#160c28"/>
+  <!-- Tower spire -->
+  <line x1="562" y1="290" x2="562" y2="272" stroke="#281640" stroke-width="4"/>
+</g>
+
+<!-- Lighthouse (left) -->
+<g opacity="0.78">
+  <rect x="72" y="438" width="20" height="88" fill="#e8dcc8" rx="2"/>
+  <!-- Red stripe -->
+  <rect x="72" y="478" width="20" height="16" fill="#c82828"/>
+  <polygon points="72,440 82,422 92,440" fill="#d0c4b0"/>
+  <rect x="68" y="418" width="28" height="9" fill="#d0c4b0" rx="1"/>
+  <!-- Light -->
+  <circle cx="82" cy="422" r="7" fill="#f8e840" opacity="0.85"/>
+  <!-- Light beams -->
+  <line x1="82" y1="415" x2="28" y2="382" stroke="#f8e040" stroke-width="2.5" opacity="0.32"/>
+  <line x1="82" y1="415" x2="148" y2="385" stroke="#f8e040" stroke-width="2.5" opacity="0.32"/>
+  <!-- Base -->
+  <rect x="64" y="525" width="36" height="12" fill="#c8bca8" rx="2"/>
+</g>
+
+<!-- Ocean / Sea -->
+<path d="M 0,518 Q 200,505 375,515 Q 552,525 750,510 L 750,908 Q 552,892 375,902 Q 200,912 0,896 Z" fill="url(#oocean)"/>
+
+<!-- Ocean waves -->
+<path d="M 0,558 Q 65,547 130,558 Q 195,568 260,558 Q 325,548 390,558 Q 455,568 520,558 Q 585,548 650,558 Q 705,566 750,560" stroke="#5ab0d8" stroke-width="4.5" fill="none" opacity="0.48" stroke-linecap="round"/>
+<path d="M 0,608 Q 78,598 156,608 Q 234,618 312,608 Q 390,598 468,608 Q 546,618 624,608 Q 695,600 750,606" stroke="#48a0c8" stroke-width="3.5" fill="none" opacity="0.38" stroke-linecap="round"/>
+<path d="M 0,665 Q 85,657 170,665 Q 255,673 340,665 Q 425,657 510,665 Q 595,673 680,665 Q 718,661 750,664" stroke="#3888b0" stroke-width="3" fill="none" opacity="0.3" stroke-linecap="round"/>
+<path d="M 0,730 Q 90,724 180,730 Q 270,736 360,730 Q 450,724 540,730 Q 630,736 720,730 L 750,730" stroke="#2878a0" stroke-width="2.5" fill="none" opacity="0.25" stroke-linecap="round"/>
+
+<!-- White caps -->
+<ellipse cx="95" cy="556" rx="16" ry="3.5" fill="#e8f4ff" opacity="0.58"/>
+<ellipse cx="275" cy="546" rx="13" ry="3" fill="#e8f4ff" opacity="0.5"/>
+<ellipse cx="458" cy="554" rx="15" ry="3.5" fill="#e8f4ff" opacity="0.55"/>
+<ellipse cx="638" cy="544" rx="12" ry="3" fill="#e8f4ff" opacity="0.5"/>
+<ellipse cx="168" cy="606" rx="11" ry="2.5" fill="#e0f0ff" opacity="0.38"/>
+<ellipse cx="388" cy="598" rx="13" ry="2.5" fill="#e0f0ff" opacity="0.35"/>
+<ellipse cx="598" cy="604" rx="10" ry="2.5" fill="#e0f0ff" opacity="0.35"/>
+
+<!-- Seabirds silhouettes -->
+<g stroke="#1a1430" stroke-width="2.8" fill="none" opacity="0.58">
+  <path d="M 148,422 Q 162,413 176,422"/>
+  <path d="M 278,402 Q 292,393 306,402"/>
+  <path d="M 378,438 Q 390,430 402,438"/>
+  <path d="M 442,415 Q 452,408 462,415"/>
+  <path d="M 108,448 Q 120,440 132,448"/>
+  <path d="M 338,428 Q 348,421 358,428"/>
+  <path d="M 508,405 Q 519,398 530,405"/>
+</g>
+
+<!-- Rocky coastline main shelf -->
+<path d="M 0,875 Q 65,842 135,858 Q 208,874 285,852 Q 362,830 452,862 Q 532,888 622,867 Q 695,850 750,872 L 750,1334 L 0,1334 Z" fill="url(#orock)"/>
+
+<!-- Large boulders -->
+<ellipse cx="75" cy="875" rx="72" ry="42" fill="#7a7060"/>
+<ellipse cx="195" cy="885" rx="58" ry="33" fill="#686050"/>
+<ellipse cx="335" cy="870" rx="82" ry="37" fill="#706858"/>
+<ellipse cx="518" cy="878" rx="68" ry="34" fill="#686050"/>
+<ellipse cx="658" cy="873" rx="62" ry="30" fill="#6e6658"/>
+
+<!-- Rock surface detail -->
+<path d="M 35,872 Q 68,856 102,866" stroke="#908070" stroke-width="2" fill="none" opacity="0.48"/>
+<path d="M 148,876 Q 175,865 202,872" stroke="#908070" stroke-width="1.8" fill="none" opacity="0.42"/>
+<path d="M 290,865 Q 322,852 355,860" stroke="#908070" stroke-width="2" fill="none" opacity="0.48"/>
+<path d="M 490,870 Q 520,858 552,868" stroke="#908070" stroke-width="1.8" fill="none" opacity="0.42"/>
+<path d="M 618,862 Q 645,852 672,860" stroke="#908070" stroke-width="1.8" fill="none" opacity="0.42"/>
+
+<!-- Kelp/seaweed at water's edge -->
+<g stroke="#286038" stroke-width="4" fill="none" opacity="0.68">
+  <path d="M 432,888 Q 445,872 458,882 Q 470,892 483,876"/>
+  <path d="M 458,892 Q 470,878 483,888"/>
+  <path d="M 598,890 Q 612,874 626,884 Q 638,894 650,878"/>
+</g>
+
+<!-- NZ FUR SEAL 1 - large, left rocks, lounging -->
+<g transform="translate(88,848)">
+  <ellipse cx="0" cy="25" rx="57" ry="23" fill="#685840"/>
+  <ellipse cx="46" cy="14" rx="19" ry="15" fill="#7a6850"/>
+  <ellipse cx="63" cy="16" rx="9" ry="7" fill="#8a7860"/>
+  <ellipse cx="70" cy="14" rx="3.5" ry="3" fill="#381e14"/>
+  <circle cx="56" cy="11" r="4.5" fill="#181008"/>
+  <circle cx="57.5" cy="10" r="1.8" fill="#ffffff"/>
+  <ellipse cx="-32" cy="36" rx="21" ry="9" fill="#583e28" transform="rotate(-14,-32,36)"/>
+  <line x1="64" y1="14" x2="84" y2="11" stroke="#c8b898" stroke-width="1.5" opacity="0.72"/>
+  <line x1="64" y1="17" x2="84" y2="17" stroke="#c8b898" stroke-width="1.5" opacity="0.72"/>
+  <line x1="64" y1="20" x2="84" y2="24" stroke="#c8b898" stroke-width="1.5" opacity="0.72"/>
+  <!-- Rear flippers -->
+  <ellipse cx="40" cy="42" rx="18" ry="7" fill="#503828" transform="rotate(20,40,42)"/>
+</g>
+
+<!-- NZ FUR SEAL 2 - medium, head raised -->
+<g transform="translate(375,850)">
+  <ellipse cx="0" cy="22" rx="42" ry="17" fill="#5a4838"/>
+  <ellipse cx="32" cy="10" rx="15" ry="12" fill="#6a5848"/>
+  <ellipse cx="45" cy="12" rx="7" ry="6" fill="#785858"/>
+  <ellipse cx="50" cy="10" rx="3" ry="2.5" fill="#281818"/>
+  <circle cx="38" cy="8" r="3.8" fill="#181008"/>
+  <circle cx="39.5" cy="7" r="1.5" fill="#fff"/>
+  <line x1="46" y1="11" x2="60" y2="9" stroke="#c0b090" stroke-width="1.2" opacity="0.7"/>
+  <line x1="46" y1="13" x2="60" y2="13" stroke="#c0b090" stroke-width="1.2" opacity="0.7"/>
+  <line x1="46" y1="15" x2="60" y2="17" stroke="#c0b090" stroke-width="1.2" opacity="0.7"/>
+</g>
+
+<!-- NZ FUR SEAL 3 - small/young, near water -->
+<g transform="translate(545,866)">
+  <ellipse cx="0" cy="14" rx="24" ry="12" fill="#8a7860"/>
+  <ellipse cx="19" cy="7" rx="12" ry="11" fill="#9a8870"/>
+  <ellipse cx="29" cy="9" rx="6" ry="5" fill="#a89878"/>
+  <circle cx="23" cy="5" r="3.5" fill="#181008"/>
+  <circle cx="24" cy="4" r="1.2" fill="#fff"/>
+  <line x1="30" y1="9" x2="42" y2="7" stroke="#d0c0a0" stroke-width="1.1" opacity="0.7"/>
+  <line x1="30" y1="11" x2="42" y2="11" stroke="#d0c0a0" stroke-width="1.1" opacity="0.7"/>
+</g>
+
+<!-- LITTLE BLUE PENGUINS (Kororā) waddling group -->
+
+<!-- Penguin helper macro - each one is a group with transform -->
+<!-- Penguin 1 (lead, leftmost) -->
+<g transform="translate(158,908)">
+  <ellipse cx="0" cy="0" rx="15" ry="27" fill="#192d60"/>
+  <ellipse cx="0" cy="5" rx="8" ry="17" fill="#e0eaf5"/>
+  <ellipse cx="0" cy="-27" rx="12" ry="12" fill="#192d60"/>
+  <ellipse cx="-4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <ellipse cx="4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <circle cx="-3" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="5" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="-2" cy="-30" r="0.9" fill="#fff"/>
+  <circle cx="6" cy="-30" r="0.9" fill="#fff"/>
+  <polygon points="-3,-22 3,-22 0,-15" fill="#c86020"/>
+  <ellipse cx="-17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(-14,-17,-8)"/>
+  <ellipse cx="17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(14,17,-8)"/>
+  <ellipse cx="-6" cy="27" rx="7" ry="4" fill="#c86020"/>
+  <ellipse cx="6" cy="27" rx="7" ry="4" fill="#c86020"/>
+</g>
+
+<!-- Penguin 2 -->
+<g transform="translate(212,916) scale(0.88)">
+  <ellipse cx="0" cy="0" rx="15" ry="27" fill="#192d60"/>
+  <ellipse cx="0" cy="5" rx="8" ry="17" fill="#e0eaf5"/>
+  <ellipse cx="0" cy="-27" rx="12" ry="12" fill="#192d60"/>
+  <ellipse cx="-4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <ellipse cx="4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <circle cx="-3" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="5" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="-2" cy="-30" r="0.9" fill="#fff"/>
+  <circle cx="6" cy="-30" r="0.9" fill="#fff"/>
+  <polygon points="-3,-22 3,-22 0,-15" fill="#c86020"/>
+  <ellipse cx="-17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(-20,-17,-8)"/>
+  <ellipse cx="17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(20,17,-8)"/>
+  <ellipse cx="-6" cy="27" rx="7" ry="4" fill="#c86020"/>
+  <ellipse cx="6" cy="27" rx="7" ry="4" fill="#c86020"/>
+</g>
+
+<!-- Penguin 3 (slightly rotated) -->
+<g transform="translate(264,912) rotate(6)">
+  <ellipse cx="0" cy="0" rx="15" ry="27" fill="#192d60"/>
+  <ellipse cx="0" cy="5" rx="8" ry="17" fill="#e0eaf5"/>
+  <ellipse cx="0" cy="-27" rx="12" ry="12" fill="#192d60"/>
+  <ellipse cx="-4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <ellipse cx="4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <circle cx="-3" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="5" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="-2" cy="-30" r="0.9" fill="#fff"/>
+  <circle cx="6" cy="-30" r="0.9" fill="#fff"/>
+  <polygon points="-3,-22 3,-22 0,-15" fill="#c86020"/>
+  <ellipse cx="-17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(-12,-17,-8)"/>
+  <ellipse cx="17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(12,17,-8)"/>
+  <ellipse cx="-6" cy="27" rx="7" ry="4" fill="#c86020"/>
+  <ellipse cx="6" cy="27" rx="7" ry="4" fill="#c86020"/>
+</g>
+
+<!-- Penguin 4 (smaller, further back) -->
+<g transform="translate(315,918) scale(0.76)">
+  <ellipse cx="0" cy="0" rx="15" ry="27" fill="#192d60"/>
+  <ellipse cx="0" cy="5" rx="8" ry="17" fill="#e0eaf5"/>
+  <ellipse cx="0" cy="-27" rx="12" ry="12" fill="#192d60"/>
+  <ellipse cx="-4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <ellipse cx="4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <circle cx="-3" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="5" cy="-29" r="2.5" fill="#100808"/>
+  <polygon points="-3,-22 3,-22 0,-15" fill="#c86020"/>
+  <ellipse cx="-17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(-16,-17,-8)"/>
+  <ellipse cx="17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(16,17,-8)"/>
+  <ellipse cx="-6" cy="27" rx="7" ry="4" fill="#c86020"/>
+  <ellipse cx="6" cy="27" rx="7" ry="4" fill="#c86020"/>
+</g>
+
+<!-- Penguin 5 (rightmost, turning slightly) -->
+<g transform="translate(366,914) rotate(-4)">
+  <ellipse cx="0" cy="0" rx="15" ry="27" fill="#192d60"/>
+  <ellipse cx="0" cy="5" rx="8" ry="17" fill="#e0eaf5"/>
+  <ellipse cx="0" cy="-27" rx="12" ry="12" fill="#192d60"/>
+  <ellipse cx="-4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <ellipse cx="4" cy="-29" rx="4" ry="4" fill="#e0eaf5"/>
+  <circle cx="-3" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="5" cy="-29" r="2.5" fill="#100808"/>
+  <circle cx="-2" cy="-30" r="0.9" fill="#fff"/>
+  <circle cx="6" cy="-30" r="0.9" fill="#fff"/>
+  <polygon points="-3,-22 3,-22 0,-15" fill="#c86020"/>
+  <ellipse cx="-17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(-18,-17,-8)"/>
+  <ellipse cx="17" cy="-8" rx="7" ry="15" fill="#111f48" transform="rotate(18,17,-8)"/>
+  <ellipse cx="-6" cy="27" rx="7" ry="4" fill="#c86020"/>
+  <ellipse cx="6" cy="27" rx="7" ry="4" fill="#c86020"/>
+</g>
+
+<!-- Foreground rocky shore dark -->
+<path d="M 0,955 Q 155,932 308,948 Q 458,964 608,942 Q 702,928 750,948 L 750,1334 L 0,1334 Z" fill="url(#oshore)"/>
+
+<!-- Pebbles on shore -->
+<g fill="#685848" opacity="0.55">
+  <ellipse cx="48" cy="985" rx="13" ry="6"/>
+  <ellipse cx="128" cy="975" rx="11" ry="5"/>
+  <ellipse cx="218" cy="990" rx="16" ry="7"/>
+  <ellipse cx="312" cy="980" rx="12" ry="5"/>
+  <ellipse cx="422" cy="986" rx="14" ry="6"/>
+  <ellipse cx="515" cy="975" rx="11" ry="5"/>
+  <ellipse cx="622" cy="982" rx="15" ry="6"/>
+  <ellipse cx="704" cy="972" rx="12" ry="5"/>
+  <ellipse cx="82" cy="1010" rx="9" ry="4"/>
+  <ellipse cx="248" cy="1005" rx="10" ry="4"/>
+  <ellipse cx="468" cy="1008" rx="9" ry="4"/>
+  <ellipse cx="658" cy="1002" rx="10" ry="4"/>
+</g>
+
+<!-- Some coastal grasses / tussock -->
+<g fill="#586838" opacity="0.75">
+  <ellipse cx="30" cy="960" rx="18" ry="8"/>
+  <ellipse cx="48" cy="958" rx="12" ry="6"/>
+  <ellipse cx="688" cy="955" rx="20" ry="8"/>
+  <ellipse cx="712" cy="958" rx="14" ry="6"/>
+  <ellipse cx="720" cy="952" rx="10" ry="5"/>
+</g>
+</svg>

@@ -1,0 +1,18 @@
+/* 全局样式 */
+page {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  color: #333;
+}
+
+/* 主色：新西兰绿 */
+:root {
+  --color-primary: #1a7a4a;
+  --color-primary-light: #e8f5ee;
+  --color-secondary: #ff6b35;
+  --color-text: #333333;
+  --color-text-light: #999999;
+  --color-border: #eeeeee;
+  --color-white: #ffffff;
+  --border-radius: 12px;
+}

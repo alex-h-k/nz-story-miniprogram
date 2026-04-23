@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334">
+<defs>
+  <!-- Crisp alpine sky: deep blue top fading to icy pale near horizon -->
+  <linearGradient id="csky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#08193a"/>
+    <stop offset="20%"  stop-color="#0d3070"/>
+    <stop offset="48%"  stop-color="#1a6ab8"/>
+    <stop offset="72%"  stop-color="#68b0d8"/>
+    <stop offset="88%"  stop-color="#b8ddf0"/>
+    <stop offset="100%" stop-color="#ddf0fa"/>
+  </linearGradient>
+  <!-- Glacial lake: turquoise milky blue -->
+  <linearGradient id="clake" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#60c8c0"/>
+    <stop offset="40%"  stop-color="#38a8a0"/>
+    <stop offset="100%" stop-color="#186058"/>
+  </linearGradient>
+  <!-- Aoraki / Mt Cook main peak -->
+  <linearGradient id="cpeak" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#eaf4fc"/>
+    <stop offset="18%"  stop-color="#c8dff0"/>
+    <stop offset="42%"  stop-color="#8ab0c8"/>
+    <stop offset="70%"  stop-color="#5a7890"/>
+    <stop offset="100%" stop-color="#384858"/>
+  </linearGradient>
+  <!-- Snow cap -->
+  <linearGradient id="csnow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#ffffff"/>
+    <stop offset="100%" stop-color="#cce8f8"/>
+  </linearGradient>
+  <!-- Mid range mountains -->
+  <linearGradient id="cmid" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#7898b0"/>
+    <stop offset="100%" stop-color="#485868"/>
+  </linearGradient>
+  <!-- Far hazy range -->
+  <linearGradient id="cfar" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#a8c8e0"/>
+    <stop offset="100%" stop-color="#7898b8"/>
+  </linearGradient>
+  <!-- Moraine / rocky foreground -->
+  <linearGradient id="cground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#8a8070"/>
+    <stop offset="100%" stop-color="#5a5040"/>
+  </linearGradient>
+  <!-- Lupins foreground -->
+  <linearGradient id="cgrass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#3a7830"/>
+    <stop offset="100%" stop-color="#285020"/>
+  </linearGradient>
+  <!-- Glacier ice -->
+  <linearGradient id="cglacier" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#d8eefa"/>
+    <stop offset="100%" stop-color="#90c8e0"/>
+  </linearGradient>
+  <!-- Shadow side of peak -->
+  <linearGradient id="cshadow" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#283848" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#283848" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<!-- Sky -->
+<rect width="750" height="1334" fill="url(#csky)"/>
+
+<!-- Stars -->
+<g fill="#ffffff">
+  <circle cx="42"  cy="42"  r="1.5" opacity="0.8"/>
+  <circle cx="108" cy="22"  r="1"   opacity="0.7"/>
+  <circle cx="188" cy="58"  r="1.5" opacity="0.65"/>
+  <circle cx="262" cy="34"  r="1"   opacity="0.8"/>
+  <circle cx="350" cy="18"  r="2"   opacity="0.75"/>
+  <circle cx="448" cy="48"  r="1"   opacity="0.65"/>
+  <circle cx="558" cy="28"  r="1.5" opacity="0.8"/>
+  <circle cx="652" cy="52"  r="1"   opacity="0.7"/>
+  <circle cx="712" cy="24"  r="1.5" opacity="0.6"/>
+  <circle cx="82"  cy="88"  r="1"   opacity="0.5"/>
+  <circle cx="318" cy="76"  r="1"   opacity="0.6"/>
+  <circle cx="528" cy="64"  r="1.5" opacity="0.55"/>
+  <circle cx="428" cy="98"  r="1"   opacity="0.65"/>
+  <circle cx="142" cy="112" r="1"   opacity="0.5"/>
+  <circle cx="638" cy="94"  r="1"   opacity="0.6"/>
+  <circle cx="232" cy="50"  r="1.2" opacity="0.55"/>
+  <circle cx="498" cy="130" r="1"   opacity="0.45"/>
+  <circle cx="718" cy="78"  r="1.2" opacity="0.55"/>
+  <circle cx="28"  cy="158" r="1"   opacity="0.4"/>
+</g>
+
+<!-- Southern Cross (faint, top right) -->
+<g fill="#ffffff" opacity="0.7">
+  <circle cx="672" cy="88"  r="2"/>
+  <circle cx="688" cy="118" r="2.5"/>
+  <circle cx="656" cy="118" r="1.8"/>
+  <circle cx="672" cy="148" r="2"/>
+  <circle cx="648" cy="105" r="1.5"/>
+</g>
+
+<!-- Moon (crescent, upper left) -->
+<circle cx="110" cy="108" r="34" fill="#fffce8" opacity="0.92"/>
+<circle cx="126" cy="98"  r="30" fill="#0d3070" opacity="1"/>
+
+<!-- Far hazy mountain range -->
+<polygon points="
+  0,680 55,618 110,638 168,598 240,612 305,578 372,595 438,562 510,580 578,548 645,568 710,538 750,552
+  750,720 0,720"
+  fill="url(#cfar)" opacity="0.6"/>
+
+<!-- Mid mountains left cluster -->
+<polygon points="
+  0,720 48,660 96,680 148,640 210,658 265,618 328,642 385,610 440,635
+  440,750 0,750"
+  fill="url(#cmid)"/>
+
+<!-- Mid mountains right cluster -->
+<polygon points="
+  310,750 365,680 420,700 478,655 545,672 610,635 672,660 720,628 750,645
+  750,760 310,760"
+  fill="url(#cmid)"/>
+
+<!-- ── AORAKI / MT COOK main massif ── -->
+<!-- Body of mountain -->
+<polygon points="
+  180,900 242,820 295,838 330,780 375,700 420,770 462,738 510,800 558,842
+  610,900"
+  fill="url(#cpeak)"/>
+
+<!-- Shadow left flank -->
+<polygon points="
+  180,900 242,820 295,838 330,780 375,700
+  355,760 310,820 270,862 220,900"
+  fill="url(#cshadow)" opacity="0.5"/>
+
+<!-- Main glacier tongue (Tasman Glacier) flowing down right -->
+<polygon points="
+  410,770 438,800 455,850 462,900 448,930 432,930 418,898 408,852 398,808"
+  fill="url(#cglacier)" opacity="0.88"/>
+
+<!-- Left glacier (Hooker) -->
+<polygon points="
+  335,788 318,825 308,875 315,910 330,912 342,878 350,838 360,800"
+  fill="url(#cglacier)" opacity="0.78"/>
+
+<!-- Snow cap: primary peak -->
+<polygon points="
+  375,700 358,730 345,755 362,748 378,738 395,748 408,755 420,770 400,742 388,722"
+  fill="url(#csnow)"/>
+
+<!-- Snow highlights on upper face -->
+<polygon points="
+  295,838 312,815 330,800 350,785 365,778 380,772 375,760 358,768 338,782 318,800 300,825"
+  fill="#ffffff" opacity="0.35"/>
+<polygon points="
+  420,770 436,758 452,748 468,760 480,778 470,772 455,762 438,768"
+  fill="#ffffff" opacity="0.28"/>
+
+<!-- Ice cliff detail lines -->
+<line x1="340" y1="820" x2="355" y2="790" stroke="#c0dff0" stroke-width="2" opacity="0.5"/>
+<line x1="360" y1="840" x2="378" y2="808" stroke="#c0dff0" stroke-width="1.5" opacity="0.4"/>
+<line x1="415" y1="830" x2="430" y2="800" stroke="#c0dff0" stroke-width="2" opacity="0.5"/>
+<line x1="438" y1="855" x2="450" y2="825" stroke="#c0dff0" stroke-width="1.5" opacity="0.38"/>
+
+<!-- Smaller flanking peak left (Mt Sefton) -->
+<polygon points="
+  60,930 108,858 148,875 185,835 228,858 270,895 270,940 60,940"
+  fill="url(#cmid)"/>
+<polygon points="
+  108,858 125,840 148,830 168,838 185,835 168,852 148,860 128,872"
+  fill="url(#csnow)" opacity="0.9"/>
+
+<!-- Flanking peak right -->
+<polygon points="
+  490,920 535,862 572,878 608,845 648,865 688,905 690,940 490,940"
+  fill="url(#cmid)"/>
+<polygon points="
+  535,862 552,845 572,835 590,845 608,845 590,858 572,862 552,868"
+  fill="url(#csnow)" opacity="0.85"/>
+
+<!-- Glacial lake Pukaki / Hooker: milky turquoise -->
+<ellipse cx="375" cy="1058" rx="340" ry="118" fill="url(#clake)" opacity="0.92"/>
+<!-- Lake shimmer -->
+<ellipse cx="350" cy="1048" rx="200" ry="38" fill="#a8e8e0" opacity="0.22"/>
+<!-- Mountain reflection in lake (simplified) -->
+<polygon points="
+  240,1000 290,1040 330,1030 375,1080 420,1030 460,1040 510,1000
+  490,1000 455,1028 420,1018 375,1062 330,1018 295,1028 260,1000"
+  fill="#38a8a0" opacity="0.28"/>
+
+<!-- Rocky moraine foreground -->
+<polygon points="
+  0,1010 80,990 160,1005 240,985 320,1000 400,980 480,998 560,982 640,1000 720,985 750,992
+  750,1100 0,1100"
+  fill="url(#cground)"/>
+
+<!-- Moraine rocks scattered -->
+<ellipse cx="68"  cy="1018" rx="18" ry="10" fill="#706050" opacity="0.7"/>
+<ellipse cx="148" cy="1008" rx="22" ry="12" fill="#786858" opacity="0.65"/>
+<ellipse cx="238" cy="1022" rx="16" ry="9"  fill="#686050" opacity="0.7"/>
+<ellipse cx="318" cy="1012" rx="20" ry="11" fill="#706858" opacity="0.68"/>
+<ellipse cx="428" cy="1015" rx="14" ry="8"  fill="#706050" opacity="0.65"/>
+<ellipse cx="508" cy="1005" rx="24" ry="13" fill="#786858" opacity="0.7"/>
+<ellipse cx="608" cy="1018" rx="18" ry="10" fill="#686050" opacity="0.68"/>
+<ellipse cx="698" cy="1008" rx="16" ry="9"  fill="#706858" opacity="0.65"/>
+
+<!-- Grassy meadow foreground -->
+<polygon points="
+  0,1100 0,1334 750,1334 750,1100
+  680,1088 600,1098 520,1082 440,1095 360,1078 280,1092 200,1080 120,1094 40,1082"
+  fill="url(#cgrass)"/>
+
+<!-- Lupins (purple, pink, white) — iconic NZ alpine flowers -->
+<!-- Purple lupins left cluster -->
+<g opacity="0.92">
+  <rect x="38"  y="1068" width="6"  height="42" rx="3" fill="#3a2870"/>
+  <ellipse cx="41"  cy="1068" rx="7"  ry="18" fill="#7048c8"/>
+  <rect x="60"  y="1058" width="6"  height="52" rx="3" fill="#3a2870"/>
+  <ellipse cx="63"  cy="1058" rx="7"  ry="20" fill="#8858d8"/>
+  <rect x="82"  y="1072" width="5"  height="38" rx="3" fill="#3a2870"/>
+  <ellipse cx="84"  cy="1072" rx="6"  ry="16" fill="#6840b8"/>
+  <rect x="22"  y="1080" width="5"  height="30" rx="3" fill="#3a2870"/>
+  <ellipse cx="24"  cy="1080" rx="6"  ry="14" fill="#7848c0"/>
+</g>
+
+<!-- Pink lupins centre-left -->
+<g opacity="0.9">
+  <rect x="158" y="1062" width="6"  height="48" rx="3" fill="#802040"/>
+  <ellipse cx="161" cy="1062" rx="7"  ry="19" fill="#e05888"/>
+  <rect x="180" y="1055" width="6"  height="55" rx="3" fill="#802040"/>
+  <ellipse cx="183" cy="1055" rx="8"  ry="22" fill="#d84878"/>
+  <rect x="140" y="1075" width="5"  height="35" rx="3" fill="#802040"/>
+  <ellipse cx="142" cy="1075" rx="6"  ry="15" fill="#e06898"/>
+</g>
+
+<!-- White/cream lupins centre -->
+<g opacity="0.88">
+  <rect x="275" y="1058" width="6"  height="52" rx="3" fill="#888070"/>
+  <ellipse cx="278" cy="1058" rx="7"  ry="20" fill="#f0ece0"/>
+  <rect x="296" y="1068" width="5"  height="42" rx="3" fill="#888070"/>
+  <ellipse cx="298" cy="1068" rx="6"  ry="17" fill="#e8e4d8"/>
+  <rect x="258" y="1072" width="5"  height="38" rx="3" fill="#888070"/>
+  <ellipse cx="260" cy="1072" rx="6"  ry="15" fill="#f0ece0"/>
+</g>
+
+<!-- Purple lupins right cluster -->
+<g opacity="0.9">
+  <rect x="558" y="1060" width="6"  height="50" rx="3" fill="#3a2870"/>
+  <ellipse cx="561" cy="1060" rx="7"  ry="20" fill="#8858d8"/>
+  <rect x="578" y="1052" width="6"  height="58" rx="3" fill="#3a2870"/>
+  <ellipse cx="581" cy="1052" rx="8"  ry="22" fill="#7048c8"/>
+  <rect x="540" y="1070" width="5"  height="40" rx="3" fill="#3a2870"/>
+  <ellipse cx="542" cy="1070" rx="6"  ry="17" fill="#6840b8"/>
+  <rect x="600" y="1065" width="5"  height="45" rx="3" fill="#3a2870"/>
+  <ellipse cx="602" cy="1065" rx="6"  ry="18" fill="#8050d0"/>
+</g>
+
+<!-- Pink lupins far right -->
+<g opacity="0.88">
+  <rect x="678" y="1065" width="6"  height="45" rx="3" fill="#802040"/>
+  <ellipse cx="681" cy="1065" rx="7"  ry="18" fill="#e05888"/>
+  <rect x="698" y="1058" width="6"  height="52" rx="3" fill="#802040"/>
+  <ellipse cx="701" cy="1058" rx="7"  ry="20" fill="#d84878"/>
+  <rect x="720" y="1070" width="5"  height="40" rx="3" fill="#802040"/>
+  <ellipse cx="722" cy="1070" rx="6"  ry="16" fill="#e06898"/>
+</g>
+
+<!-- Distant tiny hiker silhouette on ridge -->
+<g fill="#1a2838" opacity="0.7">
+  <circle cx="488" cy="913" r="5"/>
+  <rect   x="485" y="918" width="6" height="14" rx="2"/>
+  <!-- hiking pole -->
+  <line x1="483" y1="920" x2="478" y2="934" stroke="#1a2838" stroke-width="1.5"/>
+  <line x1="491" y1="920" x2="496" y2="934" stroke="#1a2838" stroke-width="1.5"/>
+</g>
+
+<!-- Kea (alpine parrot) silhouette flying -->
+<g fill="#2a4828" opacity="0.75">
+  <ellipse cx="620" cy="810" rx="14" ry="6"/>
+  <!-- wings spread -->
+  <path d="M 606,810 Q 594,800 588,808" stroke="#2a4828" stroke-width="3" fill="none"/>
+  <path d="M 634,810 Q 646,800 652,808" stroke="#2a4828" stroke-width="3" fill="none"/>
+</g>
+
+<!-- Tiny observation shelter (Mueller Hut style) on ridge -->
+<g opacity="0.8">
+  <rect x="540" y="868" width="28" height="18" rx="3" fill="#c85030"/>
+  <polygon points="536,868 568,868 554,856" fill="#a83820"/>
+  <rect x="548" y="872" width="8"  height="10" fill="#f0c860" opacity="0.8"/>
+</g>
+
+<!-- Atmospheric haze band near horizon -->
+<rect x="0" y="940" width="750" height="60" fill="#b8ddf0" opacity="0.18"/>
+
+</svg>

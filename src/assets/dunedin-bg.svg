@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334">
+<defs>
+  <linearGradient id="dsky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#1a3868"/>
+    <stop offset="40%" stop-color="#2e62a8"/>
+    <stop offset="72%" stop-color="#5a92cc"/>
+    <stop offset="100%" stop-color="#a8cce8"/>
+  </linearGradient>
+  <linearGradient id="dhill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#3a6828"/>
+    <stop offset="100%" stop-color="#284818"/>
+  </linearGradient>
+  <linearGradient id="dstone" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#383028"/>
+    <stop offset="100%" stop-color="#282018"/>
+  </linearGradient>
+  <linearGradient id="dforeground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b8b0a0"/>
+    <stop offset="100%" stop-color="#908878"/>
+  </linearGradient>
+</defs>
+
+<!-- Sky -->
+<rect width="750" height="1334" fill="url(#dsky)"/>
+
+<!-- Clouds -->
+<ellipse cx="135" cy="155" rx="130" ry="38" fill="#ffffff" opacity="0.72"/>
+<ellipse cx="200" cy="148" rx="90" ry="28" fill="#ffffff" opacity="0.78"/>
+<ellipse cx="68" cy="162" rx="68" ry="22" fill="#ffffff" opacity="0.62"/>
+<ellipse cx="530" cy="120" rx="118" ry="34" fill="#ffffff" opacity="0.65"/>
+<ellipse cx="600" cy="112" rx="80" ry="24" fill="#ffffff" opacity="0.70"/>
+<ellipse cx="465" cy="130" rx="65" ry="20" fill="#ffffff" opacity="0.58"/>
+<ellipse cx="340" cy="200" rx="95" ry="26" fill="#ffffff" opacity="0.48"/>
+<ellipse cx="700" cy="195" rx="72" ry="20" fill="#ffffff" opacity="0.55"/>
+
+<!-- Dunedin hills (background) -->
+<path d="M 0,680 Q 90,618 188,638 Q 290,658 388,612 Q 488,568 590,608 Q 678,640 750,618 L 750,740 Q 600,712 400,730 Q 200,748 0,730 Z" fill="url(#dhill)"/>
+<!-- Closer hill (left) -->
+<path d="M 0,728 Q 80,695 160,710 Q 220,722 270,705 L 270,760 Q 160,742 0,758 Z" fill="#305820" opacity="0.7"/>
+<!-- Closer hill (right) -->
+<path d="M 480,708 Q 560,690 650,705 Q 710,715 750,705 L 750,758 Q 680,740 560,752 Q 490,762 480,752 Z" fill="#305820" opacity="0.7"/>
+
+<!-- ===================== DUNEDIN RAILWAY STATION ===================== -->
+
+<!-- Foundation / plinth -->
+<rect x="45" y="955" width="660" height="28" fill="#282018" rx="3"/>
+
+<!-- ---- LEFT WING ---- -->
+<rect x="52" y="750" width="272" height="210" fill="url(#dstone)" rx="3"/>
+
+<!-- Left wing cream horizontal belt courses -->
+<rect x="52" y="788" width="272" height="10" fill="#e0ce98"/>
+<rect x="52" y="870" width="272" height="10" fill="#e0ce98"/>
+<rect x="52" y="922" width="272" height="8" fill="#e0ce98"/>
+
+<!-- Left wing windows - upper row -->
+<g fill="#c8d8e8">
+  <rect x="72" y="800" width="38" height="55" rx="18"/>
+  <rect x="124" y="800" width="38" height="55" rx="18"/>
+  <rect x="176" y="800" width="38" height="55" rx="18"/>
+  <rect x="228" y="800" width="38" height="55" rx="18"/>
+  <rect x="278" y="800" width="30" height="55" rx="14"/>
+</g>
+<!-- Window frames (cream) -->
+<g fill="none" stroke="#e0ce98" stroke-width="3">
+  <rect x="72" y="800" width="38" height="55" rx="18"/>
+  <rect x="124" y="800" width="38" height="55" rx="18"/>
+  <rect x="176" y="800" width="38" height="55" rx="18"/>
+  <rect x="228" y="800" width="38" height="55" rx="18"/>
+  <rect x="278" y="800" width="30" height="55" rx="14"/>
+</g>
+
+<!-- Left wing windows - lower row -->
+<g fill="#c8d8e8">
+  <rect x="72" y="880" width="38" height="30" rx="14"/>
+  <rect x="124" y="880" width="38" height="30" rx="14"/>
+  <rect x="176" y="880" width="38" height="30" rx="14"/>
+  <rect x="228" y="880" width="38" height="30" rx="14"/>
+</g>
+<g fill="none" stroke="#e0ce98" stroke-width="2.5">
+  <rect x="72" y="880" width="38" height="30" rx="14"/>
+  <rect x="124" y="880" width="38" height="30" rx="14"/>
+  <rect x="176" y="880" width="38" height="30" rx="14"/>
+  <rect x="228" y="880" width="38" height="30" rx="14"/>
+</g>
+
+<!-- Left wing large ground-floor arch -->
+<rect x="78" y="898" width="80" height="60" fill="#c8d8e8" rx="38"/>
+<rect x="178" y="898" width="80" height="60" fill="#c8d8e8" rx="38"/>
+<rect x="78" y="898" width="80" height="60" fill="none" stroke="#e0ce98" stroke-width="3" rx="38"/>
+<rect x="178" y="898" width="80" height="60" fill="none" stroke="#e0ce98" stroke-width="3" rx="38"/>
+
+<!-- Left wing Flemish step gable -->
+<polygon points="52,750 52,718 72,718 72,700 100,700 100,685 130,685 130,670 160,670 160,685 190,685 190,700 220,700 220,718 268,718 268,750" fill="#302820"/>
+<!-- Gable cream trim -->
+<polyline points="52,718 72,718 72,700 100,700 100,685 130,685 130,670 160,670 160,685 190,685 190,700 220,700 220,718 268,718" fill="none" stroke="#e0ce98" stroke-width="4"/>
+<!-- Gable finials -->
+<circle cx="72" cy="718" r="6" fill="#e0ce98"/>
+<circle cx="100" cy="700" r="5" fill="#e0ce98"/>
+<circle cx="130" cy="685" r="5" fill="#e0ce98"/>
+<circle cx="160" cy="670" r="7" fill="#e0ce98"/>
+<circle cx="190" cy="685" r="5" fill="#e0ce98"/>
+<circle cx="220" cy="700" r="5" fill="#e0ce98"/>
+<circle cx="248" cy="718" r="5" fill="#e0ce98"/>
+
+<!-- Left wing corner pilasters -->
+<rect x="48" y="750" width="14" height="210" fill="#302820" rx="2"/>
+<rect x="310" y="750" width="14" height="210" fill="#302820" rx="2"/>
+<rect x="48" y="748" width="14" height="8" fill="#e0ce98" rx="1"/>
+<rect x="310" y="748" width="14" height="8" fill="#e0ce98" rx="1"/>
+
+<!-- ---- RIGHT WING (mirrored) ---- -->
+<rect x="426" y="750" width="272" height="210" fill="url(#dstone)" rx="3"/>
+<rect x="426" y="788" width="272" height="10" fill="#e0ce98"/>
+<rect x="426" y="870" width="272" height="10" fill="#e0ce98"/>
+<rect x="426" y="922" width="272" height="8" fill="#e0ce98"/>
+
+<g fill="#c8d8e8">
+  <rect x="434" y="800" width="30" height="55" rx="14"/>
+  <rect x="484" y="800" width="38" height="55" rx="18"/>
+  <rect x="536" y="800" width="38" height="55" rx="18"/>
+  <rect x="588" y="800" width="38" height="55" rx="18"/>
+  <rect x="640" y="800" width="38" height="55" rx="18"/>
+</g>
+<g fill="none" stroke="#e0ce98" stroke-width="3">
+  <rect x="434" y="800" width="30" height="55" rx="14"/>
+  <rect x="484" y="800" width="38" height="55" rx="18"/>
+  <rect x="536" y="800" width="38" height="55" rx="18"/>
+  <rect x="588" y="800" width="38" height="55" rx="18"/>
+  <rect x="640" y="800" width="38" height="55" rx="18"/>
+</g>
+<g fill="#c8d8e8">
+  <rect x="484" y="880" width="38" height="30" rx="14"/>
+  <rect x="536" y="880" width="38" height="30" rx="14"/>
+  <rect x="588" y="880" width="38" height="30" rx="14"/>
+  <rect x="640" y="880" width="38" height="30" rx="14"/>
+</g>
+<g fill="none" stroke="#e0ce98" stroke-width="2.5">
+  <rect x="484" y="880" width="38" height="30" rx="14"/>
+  <rect x="536" y="880" width="38" height="30" rx="14"/>
+  <rect x="588" y="880" width="38" height="30" rx="14"/>
+  <rect x="640" y="880" width="38" height="30" rx="14"/>
+</g>
+<rect x="592" y="898" width="80" height="60" fill="#c8d8e8" rx="38"/>
+<rect x="492" y="898" width="80" height="60" fill="#c8d8e8" rx="38"/>
+<rect x="592" y="898" width="80" height="60" fill="none" stroke="#e0ce98" stroke-width="3" rx="38"/>
+<rect x="492" y="898" width="80" height="60" fill="none" stroke="#e0ce98" stroke-width="3" rx="38"/>
+
+<!-- Right wing Flemish step gable (mirrored) -->
+<polygon points="698,750 698,718 678,718 678,700 650,700 650,685 620,685 620,670 590,670 590,685 560,685 560,700 530,700 530,718 482,718 482,750" fill="#302820"/>
+<polyline points="698,718 678,718 678,700 650,700 650,685 620,685 620,670 590,670 590,685 560,685 560,700 530,700 530,718 482,718" fill="none" stroke="#e0ce98" stroke-width="4"/>
+<circle cx="678" cy="718" r="6" fill="#e0ce98"/>
+<circle cx="650" cy="700" r="5" fill="#e0ce98"/>
+<circle cx="620" cy="685" r="5" fill="#e0ce98"/>
+<circle cx="590" cy="670" r="7" fill="#e0ce98"/>
+<circle cx="560" cy="685" r="5" fill="#e0ce98"/>
+<circle cx="530" cy="700" r="5" fill="#e0ce98"/>
+<circle cx="502" cy="718" r="5" fill="#e0ce98"/>
+
+<rect x="688" y="750" width="14" height="210" fill="#302820" rx="2"/>
+<rect x="428" y="750" width="14" height="210" fill="#302820" rx="2"/>
+<rect x="688" y="748" width="14" height="8" fill="#e0ce98" rx="1"/>
+<rect x="428" y="748" width="14" height="8" fill="#e0ce98" rx="1"/>
+
+<!-- ---- CENTRE SECTION ---- -->
+<rect x="298" y="730" width="154" height="230" fill="#2a2018" rx="3"/>
+<rect x="298" y="762" width="154" height="10" fill="#e0ce98"/>
+<rect x="298" y="848" width="154" height="10" fill="#e0ce98"/>
+
+<!-- Centre windows -->
+<g fill="#c8d8e8">
+  <rect x="313" y="775" width="42" height="58" rx="20"/>
+  <rect x="395" y="775" width="42" height="58" rx="20"/>
+</g>
+<g fill="none" stroke="#e0ce98" stroke-width="3">
+  <rect x="313" y="775" width="42" height="58" rx="20"/>
+  <rect x="395" y="775" width="42" height="58" rx="20"/>
+</g>
+
+<!-- Centre grand entrance arch -->
+<rect x="315" y="878" width="120" height="82" rx="58" fill="#c8d8e8"/>
+<rect x="315" y="878" width="120" height="82" rx="58" fill="none" stroke="#e0ce98" stroke-width="4"/>
+<!-- Entrance door -->
+<rect x="340" y="918" width="30" height="42" fill="#1a1408" rx="4"/>
+<rect x="380" y="918" width="30" height="42" fill="#1a1408" rx="4"/>
+<circle cx="369" cy="940" r="3" fill="#d0b858"/>
+<circle cx="381" cy="940" r="3" fill="#d0b858"/>
+
+<!-- ---- CLOCK TOWER ---- -->
+<!-- Tower base (square) -->
+<rect x="318" y="635" width="114" height="100" fill="#222018" rx="3"/>
+<rect x="318" y="638" width="114" height="10" fill="#e0ce98"/>
+<!-- Tower windows (arched) -->
+<rect x="333" y="655" width="32" height="48" rx="15" fill="#c8d8e8"/>
+<rect x="385" y="655" width="32" height="48" rx="15" fill="#c8d8e8"/>
+<rect x="333" y="655" width="32" height="48" rx="15" fill="none" stroke="#e0ce98" stroke-width="2.5"/>
+<rect x="385" y="655" width="32" height="48" rx="15" fill="none" stroke="#e0ce98" stroke-width="2.5"/>
+
+<!-- Tower middle (narrower, belfry) -->
+<rect x="326" y="530" width="98" height="108" fill="#1e1c14" rx="3"/>
+<rect x="326" y="534" width="98" height="10" fill="#e0ce98"/>
+<!-- Belfry arched openings -->
+<rect x="338" y="550" width="30" height="50" rx="14" fill="#5a6a7a" opacity="0.7"/>
+<rect x="382" y="550" width="30" height="50" rx="14" fill="#5a6a7a" opacity="0.7"/>
+
+<!-- CLOCK FACE -->
+<!-- Tower clock section -->
+<rect x="328" y="450" width="94" height="84" fill="#1a1810" rx="3"/>
+<circle cx="375" cy="492" r="34" fill="#f0e898" opacity="0.95"/>
+<circle cx="375" cy="492" r="30" fill="#f8f0a8" opacity="0.9"/>
+<!-- Clock numerals suggestion -->
+<circle cx="375" cy="463" r="3" fill="#2a2010"/>
+<circle cx="404" cy="492" r="3" fill="#2a2010"/>
+<circle cx="375" cy="521" r="3" fill="#2a2010"/>
+<circle cx="346" cy="492" r="3" fill="#2a2010"/>
+<!-- Clock hands -->
+<line x1="375" y1="492" x2="375" y2="468" stroke="#1a1808" stroke-width="4" stroke-linecap="round"/>
+<line x1="375" y1="492" x2="396" y2="505" stroke="#1a1808" stroke-width="3" stroke-linecap="round"/>
+<!-- Clock face border -->
+<circle cx="375" cy="492" r="34" fill="none" stroke="#c0a040" stroke-width="3"/>
+
+<!-- Tower top cornice -->
+<rect x="316" y="534" width="118" height="12" fill="#e0ce98" rx="2"/>
+<rect x="316" y="446" width="118" height="12" fill="#e0ce98" rx="2"/>
+
+<!-- GREEN COPPER DOME -->
+<ellipse cx="375" cy="440" rx="62" ry="22" fill="#4a7858"/>
+<path d="M 313,440 Q 335,398 375,385 Q 415,398 437,440 Z" fill="#538868"/>
+<!-- Dome highlight -->
+<path d="M 345,420 Q 360,400 375,395 Q 362,402 352,418 Z" fill="#68a87a" opacity="0.6"/>
+
+<!-- Cupola (small octagonal tower on dome) -->
+<rect x="354" y="360" width="42" height="30" fill="#3a5e48" rx="6"/>
+<ellipse cx="375" cy="358" rx="26" ry="10" fill="#4a7058"/>
+<!-- Cupola lantern -->
+<rect x="362" y="330" width="26" height="32" fill="#304838" rx="4"/>
+<ellipse cx="375" cy="328" rx="16" ry="8" fill="#3a5848"/>
+
+<!-- Finial / spire on top -->
+<line x1="375" y1="328" x2="375" y2="278" stroke="#385040" stroke-width="7" stroke-linecap="round"/>
+<line x1="375" y1="278" x2="375" y2="258" stroke="#4a6858" stroke-width="4" stroke-linecap="round"/>
+<circle cx="375" cy="255" r="10" fill="#5a8870"/>
+<circle cx="375" cy="255" r="5" fill="#78a890"/>
+
+<!-- Pilasters on tower -->
+<rect x="314" y="635" width="10" height="100" fill="#2a2018" rx="2"/>
+<rect x="426" y="635" width="10" height="100" fill="#2a2018" rx="2"/>
+<rect x="314" y="632" width="10" height="8" fill="#e0ce98" rx="1"/>
+<rect x="426" y="632" width="10" height="8" fill="#e0ce98" rx="1"/>
+
+<!-- ===================== FORECOURT ===================== -->
+<rect x="0" y="980" width="750" height="180" fill="url(#dforeground)"/>
+<!-- Forecourt tile pattern suggestion -->
+<g stroke="#a09888" stroke-width="1" opacity="0.4">
+  <line x1="0" y1="1010" x2="750" y2="1010"/>
+  <line x1="0" y1="1040" x2="750" y2="1040"/>
+  <line x1="0" y1="1070" x2="750" y2="1070"/>
+  <line x1="0" y1="1100" x2="750" y2="1100"/>
+  <line x1="0" y1="1130" x2="750" y2="1130"/>
+  <line x1="125" y1="980" x2="125" y2="1160"/>
+  <line x1="250" y1="980" x2="250" y2="1160"/>
+  <line x1="375" y1="980" x2="375" y2="1160"/>
+  <line x1="500" y1="980" x2="500" y2="1160"/>
+  <line x1="625" y1="980" x2="625" y2="1160"/>
+</g>
+
+<!-- Street / Dark ground -->
+<rect x="0" y="1158" width="750" height="176" fill="#2a2820"/>
+<!-- Road markings -->
+<rect x="0" y="1168" width="750" height="6" fill="#c8c0a8" opacity="0.35"/>
+<g fill="#f0e898" opacity="0.5">
+  <rect x="60" y="1188" width="60" height="8" rx="4"/>
+  <rect x="180" y="1188" width="60" height="8" rx="4"/>
+  <rect x="300" y="1188" width="60" height="8" rx="4"/>
+  <rect x="420" y="1188" width="60" height="8" rx="4"/>
+  <rect x="540" y="1188" width="60" height="8" rx="4"/>
+  <rect x="660" y="1188" width="60" height="8" rx="4"/>
+</g>
+
+<!-- Street lamps -->
+<g fill="#c8b878" opacity="0.85">
+  <rect x="118" y="940" width="8" height="48" rx="3"/>
+  <ellipse cx="122" cy="938" rx="14" ry="6" fill="#d8c888"/>
+  <circle cx="122" cy="934" r="7" fill="#f8e840" opacity="0.8"/>
+  <rect x="622" y="940" width="8" height="48" rx="3"/>
+  <ellipse cx="626" cy="938" rx="14" ry="6" fill="#d8c888"/>
+  <circle cx="626" cy="934" r="7" fill="#f8e840" opacity="0.8"/>
+</g>
+
+<!-- A few people silhouettes in forecourt -->
+<g fill="#282018" opacity="0.55">
+  <ellipse cx="220" cy="1005" rx="7" ry="18"/>
+  <circle cx="220" cy="984" r="7"/>
+  <ellipse cx="260" cy="1008" rx="6" ry="15"/>
+  <circle cx="260" cy="990" r="6"/>
+  <ellipse cx="480" cy="1005" rx="7" ry="18"/>
+  <circle cx="480" cy="984" r="7"/>
+  <ellipse cx="520" cy="1010" rx="6" ry="16"/>
+  <circle cx="520" cy="991" r="6"/>
+</g>
+
+<!-- Train smoke / atmosphere (subtle) -->
+<ellipse cx="600" cy="720" rx="48" ry="18" fill="#c8c0b8" opacity="0.22"/>
+<ellipse cx="635" cy="700" rx="35" ry="14" fill="#c8c0b8" opacity="0.18"/>
+<ellipse cx="660" cy="686" rx="24" ry="10" fill="#c8c0b8" opacity="0.14"/>
+</svg>

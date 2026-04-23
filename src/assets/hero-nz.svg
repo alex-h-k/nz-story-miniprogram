@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500" width="750" height="500">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5BC8F5"/>
+      <stop offset="100%" stop-color="#C8EEFF"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5BA4CF"/>
+      <stop offset="100%" stop-color="#2271A8"/>
+    </linearGradient>
+    <linearGradient id="mtnC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F4F8"/>
+      <stop offset="22%" stop-color="#BDC8D0"/>
+      <stop offset="100%" stop-color="#7A98A8"/>
+    </linearGradient>
+    <linearGradient id="mtnL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECEFF1"/>
+      <stop offset="28%" stop-color="#9EB4BE"/>
+      <stop offset="100%" stop-color="#668898"/>
+    </linearGradient>
+    <linearGradient id="mtnR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECEFF1"/>
+      <stop offset="30%" stop-color="#8EA4AF"/>
+      <stop offset="100%" stop-color="#5C7E8C"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5CB85C"/>
+      <stop offset="100%" stop-color="#3D8B3D"/>
+    </linearGradient>
+    <linearGradient id="hillFore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <filter id="softShadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.18)"/>
+    </filter>
+  </defs>
+
+  <!-- ══ SKY ══ -->
+  <rect width="750" height="500" fill="url(#sky)"/>
+
+  <!-- Sun -->
+  <circle cx="672" cy="68" r="58" fill="#FFF8DC" opacity="0.3"/>
+  <circle cx="672" cy="68" r="42" fill="#FFE082" opacity="0.6"/>
+  <circle cx="672" cy="68" r="28" fill="#FFD54F"/>
+
+  <!-- Rainbow -->
+  <path d="M 15,295 A 368,265 0 0,1 735,295" fill="none" stroke="#FF4444" stroke-width="6" opacity="0.16"/>
+  <path d="M 25,295 A 358,255 0 0,1 725,295" fill="none" stroke="#FF9900" stroke-width="6" opacity="0.16"/>
+  <path d="M 35,295 A 348,245 0 0,1 715,295" fill="none" stroke="#FFEE00" stroke-width="6" opacity="0.16"/>
+  <path d="M 45,295 A 338,235 0 0,1 705,295" fill="none" stroke="#44CC44" stroke-width="6" opacity="0.16"/>
+  <path d="M 55,295 A 328,225 0 0,1 695,295" fill="none" stroke="#3399FF" stroke-width="6" opacity="0.16"/>
+  <path d="M 65,295 A 318,215 0 0,1 685,295" fill="none" stroke="#CC44FF" stroke-width="6" opacity="0.16"/>
+
+  <!-- Clouds -->
+  <g opacity="0.94">
+    <ellipse cx="148" cy="80" rx="76" ry="28" fill="white"/>
+    <ellipse cx="112" cy="90" rx="50" ry="23" fill="white"/>
+    <ellipse cx="182" cy="89" rx="55" ry="24" fill="white"/>
+    <ellipse cx="148" cy="96" rx="76" ry="20" fill="white"/>
+  </g>
+  <g opacity="0.80">
+    <ellipse cx="430" cy="50" rx="60" ry="22" fill="white"/>
+    <ellipse cx="400" cy="58" rx="42" ry="18" fill="white"/>
+    <ellipse cx="462" cy="58" rx="46" ry="18" fill="white"/>
+  </g>
+  <g opacity="0.68">
+    <ellipse cx="560" cy="90" rx="42" ry="16" fill="white"/>
+    <ellipse cx="538" cy="97" rx="30" ry="13" fill="white"/>
+    <ellipse cx="582" cy="97" rx="32" ry="13" fill="white"/>
+  </g>
+
+  <!-- ══ MOUNTAINS ══ -->
+  <!-- Left mountain -->
+  <polygon points="0,318 118,108 238,318" fill="url(#mtnL)"/>
+  <polygon points="118,108 92,182 118,170 144,182" fill="white"/>
+  <polygon points="118,108 98,168 118,160 138,168" fill="#ECEFF1"/>
+
+  <!-- Centre mountain (tallest — Southern Alps) -->
+  <polygon points="190,325 378,52 566,325" fill="url(#mtnC)"/>
+  <polygon points="378,52 334,148 378,132 422,148" fill="white"/>
+  <polygon points="378,52 348,130 378,118 408,130" fill="#ECEFF1"/>
+  <!-- Crevasse detail -->
+  <line x1="378" y1="118" x2="365" y2="175" stroke="#B0BEC5" stroke-width="2" opacity="0.5"/>
+  <line x1="378" y1="118" x2="392" y2="180" stroke="#B0BEC5" stroke-width="2" opacity="0.5"/>
+
+  <!-- Right mountain -->
+  <polygon points="458,318 600,112 742,318" fill="url(#mtnR)"/>
+  <polygon points="600,112 572,186 600,172 628,186" fill="white"/>
+  <polygon points="600,112 576,172 600,162 624,172" fill="#ECEFF1"/>
+
+  <!-- ══ LAKE / FJORD ══ -->
+  <path d="M 120,310 Q 248,288 378,298 Q 508,308 636,292 L 648,318 Q 510,332 378,322 Q 246,312 108,336 Z" fill="url(#water)" opacity="0.78"/>
+  <!-- Water shimmer -->
+  <line x1="160" y1="316" x2="260" y2="310" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="180" y1="326" x2="290" y2="320" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="440" y1="312" x2="560" y2="306" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- ══ HILLS ══ -->
+  <!-- Mid hill -->
+  <path d="M -10,400 Q 80,318 210,348 Q 320,372 408,328 Q 496,284 618,336 Q 708,372 770,345 L 770,500 L -10,500 Z" fill="url(#hillMid)"/>
+  <!-- Fore hill (darker) -->
+  <path d="M -10,500 Q 110,428 250,450 Q 390,468 500,438 Q 620,406 770,445 L 770,500 Z" fill="url(#hillFore)"/>
+
+  <!-- ══ ROAD ══ -->
+  <path d="M -10,435 Q 375,415 770,435 L 770,460 Q 375,442 -10,462 Z" fill="#9E9E9E"/>
+  <!-- Road dashes -->
+  <path d="M 20,448 Q 375,428 730,448" stroke="white" stroke-width="3" stroke-dasharray="22,18" fill="none" opacity="0.65"/>
+  <!-- Road edge lines -->
+  <path d="M -10,436 Q 375,416 770,436" stroke="#E0E0E0" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M -10,460 Q 375,441 770,460" stroke="#E0E0E0" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- ══ PINE TREES ══ -->
+  <g fill="#1B5E20">
+    <!-- Left cluster -->
+    <polygon points="42,420 56,375 70,420"/>
+    <polygon points="54,410 68,362 82,410"/>
+    <polygon points="68,420 82,373 96,420"/>
+    <rect x="57" y="418" width="6" height="14" fill="#4E342E"/>
+    <rect x="74" y="418" width="6" height="14" fill="#4E342E"/>
+    <!-- Right cluster -->
+    <polygon points="630,408 644,363 658,408"/>
+    <polygon points="645,418 659,370 673,418"/>
+    <polygon points="660,410 674,365 688,410"/>
+    <rect x="641" y="406" width="6" height="14" fill="#4E342E"/>
+    <rect x="662" y="408" width="6" height="14" fill="#4E342E"/>
+  </g>
+
+  <!-- ══ SHEEP (left hillside) ══ -->
+  <!-- Sheep 1 (larger, front) -->
+  <g transform="translate(148,388)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="0" rx="32" ry="22" fill="white"/>
+    <ellipse cx="-14" cy="-8" rx="18" ry="15" fill="white"/>
+    <ellipse cx="12" cy="-10" rx="17" ry="14" fill="white"/>
+    <ellipse cx="-4" cy="-16" rx="15" ry="12" fill="white"/>
+    <ellipse cx="10" cy="-18" rx="13" ry="11" fill="white"/>
+    <!-- Head (facing right) -->
+    <ellipse cx="28" cy="-12" rx="13" ry="11" fill="#F5F5DC"/>
+    <ellipse cx="23" cy="-22" rx="5.5" ry="7" fill="#F0EAD0" transform="rotate(-20,23,-22)"/>
+    <circle cx="31" cy="-15" r="3" fill="#333"/>
+    <circle cx="32" cy="-16.5" r="1.2" fill="white"/>
+    <ellipse cx="36" cy="-10" rx="3" ry="2.2" fill="#FFCDD2" opacity="0.85"/>
+    <path d="M 33,-8 Q 36,-5 39,-8" stroke="#AAA" stroke-width="1.5" fill="none"/>
+    <!-- Legs -->
+    <rect x="-22" y="20" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="-9" y="21" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="5" y="20" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="18" y="19" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <!-- Hooves -->
+    <rect x="-22" y="34" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="-9" y="35" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="5" y="34" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="18" y="33" width="7" height="4" rx="2" fill="#555"/>
+    <!-- Tail -->
+    <ellipse cx="-34" cy="-3" rx="7" ry="6" fill="white"/>
+  </g>
+
+  <!-- Sheep 2 (smaller, behind) -->
+  <g transform="translate(230,368) scale(0.65)">
+    <ellipse cx="0" cy="0" rx="32" ry="22" fill="white"/>
+    <ellipse cx="-14" cy="-8" rx="18" ry="15" fill="white"/>
+    <ellipse cx="12" cy="-10" rx="17" ry="14" fill="white"/>
+    <ellipse cx="-4" cy="-16" rx="15" ry="12" fill="white"/>
+    <!-- Head (facing right) -->
+    <ellipse cx="28" cy="-12" rx="13" ry="11" fill="#F5F5DC"/>
+    <circle cx="31" cy="-15" r="3" fill="#333"/>
+    <circle cx="32" cy="-16.5" r="1.2" fill="white"/>
+    <!-- Legs -->
+    <rect x="-22" y="20" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="-9" y="21" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="5" y="20" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="18" y="19" width="7" height="16" rx="3.5" fill="#C8C8C8"/>
+    <rect x="-22" y="34" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="-9" y="35" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="5" y="34" width="7" height="4" rx="2" fill="#555"/>
+    <rect x="18" y="33" width="7" height="4" rx="2" fill="#555"/>
+  </g>
+
+  <!-- ══ KIWI BIRD ══ -->
+  <g transform="translate(338,448)" filter="url(#softShadow)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="26" ry="20" fill="#8D6E63"/>
+    <ellipse cx="-6" cy="-4" rx="16" ry="13" fill="#A1887F"/>
+    <!-- Feather strokes -->
+    <path d="M-14,5 Q0,0 15,5" stroke="#6D4C41" stroke-width="2" fill="none" opacity="0.45"/>
+    <path d="M-14,-2 Q0,-8 14,-2" stroke="#6D4C41" stroke-width="2" fill="none" opacity="0.45"/>
+    <path d="M-10,-9 Q2,-14 12,-9" stroke="#6D4C41" stroke-width="1.5" fill="none" opacity="0.35"/>
+    <!-- Head -->
+    <ellipse cx="19" cy="-9" rx="14" ry="12" fill="#8D6E63"/>
+    <!-- Long beak -->
+    <path d="M 30,-9 C 44,-12 58,-9 56,-4" stroke="#BCAAA4" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M 30,-9 C 44,-7 58,-4 56,-4" stroke="#795548" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="49" cy="-8" r="1.8" fill="#6D4C41"/>
+    <!-- Eye -->
+    <circle cx="23" cy="-12" r="4" fill="#1A1A1A"/>
+    <circle cx="24.5" cy="-13.5" r="1.5" fill="white"/>
+    <!-- Legs -->
+    <path d="M -5,18 L -9,30 M -9,30 L -16,33 M -9,30 L -5,33 M -9,30 L -9,35" stroke="#795548" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M 6,19 L 2,31 M 2,31 L -5,34 M 2,31 L 6,34 M 2,31 L 2,36" stroke="#795548" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ══ COMBI CAMPERVAN (VW Type 2) ══ -->
+  <g transform="translate(518,403)" filter="url(#softShadow)">
+    <!-- Shadow on road -->
+    <ellipse cx="8" cy="40" rx="82" ry="9" fill="rgba(0,0,0,0.18)"/>
+
+    <!-- Roof rack -->
+    <rect x="-56" y="-90" width="112" height="7" rx="3.5" fill="#795548"/>
+    <rect x="-42" y="-90" width="4" height="8" fill="#6D4C41"/>
+    <rect x="-8" y="-90" width="4" height="8" fill="#6D4C41"/>
+    <rect x="26" y="-90" width="4" height="8" fill="#6D4C41"/>
+    <rect x="46" y="-90" width="4" height="8" fill="#6D4C41"/>
+    <!-- Surfboard on rack -->
+    <rect x="-50" y="-96" width="100" height="8" rx="4" fill="#FF7043"/>
+    <rect x="-50" y="-96" width="100" height="2" rx="1" fill="#FF5722"/>
+    <ellipse cx="-46" cy="-92" rx="4" ry="4" fill="#FF8A65"/>
+    <ellipse cx="46" cy="-92" rx="4" ry="4" fill="#FF8A65"/>
+
+    <!-- Body: rounded overall shape -->
+    <!-- Upper cream section (cab) -->
+    <rect x="-65" y="-82" width="130" height="38" rx="8" fill="#F5F0E4"/>
+    <!-- Lower coloured section -->
+    <rect x="-65" y="-46" width="130" height="70" rx="0" fill="#4A9E6E"/>
+    <!-- Bottom corners rounded -->
+    <rect x="-65" y="-82" width="130" height="108" rx="10" fill="none" stroke="none"/>
+    <!-- Clip with rounded corners using two overlapping shapes -->
+    <path d="M -65,-82 Q -65,-82 -65,-72 L -65,20 Q -65,28 -55,28 L 55,28 Q 65,28 65,20 L 65,-72 Q 65,-82 65,-82 L -65,-82 Z" fill="none"/>
+
+    <!-- Cream upper body overlay to create two-tone effect -->
+    <rect x="-63" y="-80" width="126" height="34" rx="6" fill="#F5F0E4"/>
+    <!-- Green lower body overlay -->
+    <rect x="-63" y="-46" width="126" height="72" rx="0" fill="#4A9E6E"/>
+
+    <!-- Rounded body corners (full shape) -->
+    <path d="M -65,-72 Q -65,-82 -55,-82 L 55,-82 Q 65,-82 65,-72 L 65,22 Q 65,28 55,28 L -55,28 Q -65,28 -65,22 Z" fill="none" stroke="#3A7A58" stroke-width="2"/>
+
+    <!-- Horizontal stripe dividing the two tones -->
+    <rect x="-63" y="-48" width="126" height="4" fill="#3A7A58"/>
+
+    <!-- Split windshield (VW Type 2 signature) - facing LEFT -->
+    <rect x="-60" y="-76" width="28" height="25" rx="4" fill="#ADE8FF" opacity="0.85"/>
+    <rect x="-28" y="-76" width="28" height="25" rx="4" fill="#ADE8FF" opacity="0.85"/>
+    <!-- Windshield divider -->
+    <rect x="-31" y="-76" width="4" height="25" fill="#F5F0E4"/>
+    <!-- Windshield top bar -->
+    <rect x="-62" y="-80" width="66" height="6" rx="3" fill="#F5F0E4"/>
+
+    <!-- Side windows (right side of the van) -->
+    <rect x="10" y="-76" width="30" height="22" rx="4" fill="#ADE8FF" opacity="0.85"/>
+    <rect x="44" y="-76" width="18" height="22" rx="4" fill="#ADE8FF" opacity="0.65"/>
+
+    <!-- VW circle badge -->
+    <circle cx="-8" cy="-60" r="11" fill="white" opacity="0.85"/>
+    <circle cx="-8" cy="-60" r="8" fill="none" stroke="#3A7A58" stroke-width="2"/>
+    <!-- VW lettering simplified -->
+    <text x="-8" y="-56" text-anchor="middle" font-size="8" fill="#3A7A58" font-weight="bold" font-family="Arial">VW</text>
+
+    <!-- Door seam (left/driver side) -->
+    <line x1="-8" y1="-44" x2="-8" y2="26" stroke="#3A7A58" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Headlights (left/front side) -->
+    <circle cx="-54" cy="-20" r="9" fill="#FFF9C4" stroke="#DDD" stroke-width="1"/>
+    <circle cx="-54" cy="-20" r="6" fill="#FFD54F"/>
+    <circle cx="-54" cy="-20" r="3" fill="#FFCA28"/>
+
+    <!-- Front bumper -->
+    <rect x="-70" y="-8" width="14" height="7" rx="3" fill="#BDBDBD"/>
+    <rect x="-70" y="4" width="14" height="7" rx="3" fill="#BDBDBD"/>
+
+    <!-- Rear details -->
+    <circle cx="56" cy="-20" r="5" fill="#EF5350" opacity="0.85"/><!-- tail light -->
+    <rect x="60" y="-8" width="9" height="5" rx="2" fill="#BDBDBD"/><!-- rear bumper -->
+
+    <!-- Wheels -->
+    <circle cx="-38" cy="30" r="25" fill="#2E2E2E"/>
+    <circle cx="-38" cy="30" r="17" fill="#555"/>
+    <circle cx="-38" cy="30" r="10" fill="#888"/>
+    <circle cx="-38" cy="30" r="5" fill="#BBB"/>
+    <!-- Wheel bolts -->
+    <circle cx="-38" cy="18" r="2.5" fill="#999"/>
+    <circle cx="-38" cy="42" r="2.5" fill="#999"/>
+    <circle cx="-26" cy="30" r="2.5" fill="#999"/>
+    <circle cx="-50" cy="30" r="2.5" fill="#999"/>
+
+    <circle cx="42" cy="30" r="25" fill="#2E2E2E"/>
+    <circle cx="42" cy="30" r="17" fill="#555"/>
+    <circle cx="42" cy="30" r="10" fill="#888"/>
+    <circle cx="42" cy="30" r="5" fill="#BBB"/>
+    <circle cx="42" cy="18" r="2.5" fill="#999"/>
+    <circle cx="42" cy="42" r="2.5" fill="#999"/>
+    <circle cx="30" cy="30" r="2.5" fill="#999"/>
+    <circle cx="54" cy="30" r="2.5" fill="#999"/>
+
+    <!-- Exhaust smoke puffs (from front/left since facing left) -->
+    <circle cx="-76" cy="12" r="6" fill="white" opacity="0.55"/>
+    <circle cx="-86" cy="7" r="5" fill="white" opacity="0.38"/>
+    <circle cx="-94" cy="2" r="4" fill="white" opacity="0.22"/>
+    <!-- Exhaust pipe -->
+    <rect x="-72" y="14" width="10" height="4" rx="2" fill="#888"/>
+  </g>
+
+  <!-- ══ NZ SILVER FERN ══ -->
+  <g transform="translate(290,450)" opacity="0.9">
+    <path d="M0,38 C-5,26-18,8-12,0 C-6,-8 5,14 0,38" fill="#2E7D32"/>
+    <path d="M0,38 C5,26 18,8 12,0 C6,-8-5,14 0,38" fill="#388E3C"/>
+    <path d="M0,38 C-9,24-24,12-20,3 C-16,-6-2,16 0,38" fill="#1B5E20"/>
+    <path d="M0,38 C9,24 24,12 20,3 C16,-6 2,16 0,38" fill="#388E3C"/>
+    <line x1="0" y1="2" x2="0" y2="38" stroke="#1B5E20" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Small flowers on hill -->
+  <circle cx="195" cy="432" r="5" fill="#FFB300"/>
+  <circle cx="195" cy="432" r="3" fill="#FFF176"/>
+  <circle cx="210" cy="440" r="4" fill="#FF7043"/>
+  <circle cx="210" cy="440" r="2.5" fill="#FFCCBC"/>
+  <circle cx="178" cy="445" r="4" fill="#FFB300"/>
+  <circle cx="178" cy="445" r="2.5" fill="#FFF9C4"/>
+</svg>

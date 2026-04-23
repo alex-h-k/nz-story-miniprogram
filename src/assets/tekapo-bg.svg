@@ -1,0 +1,334 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334" width="750" height="1334">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#B8D0E8"/>
+      <stop offset="55%"  stop-color="#D0C8E0"/>
+      <stop offset="100%" stop-color="#E8D8C0"/>
+    </linearGradient>
+    <linearGradient id="mtnSnow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#F2EEE8"/>
+      <stop offset="100%" stop-color="#B8BACC"/>
+    </linearGradient>
+    <linearGradient id="mtnPurple" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#8870A8"/>
+      <stop offset="100%" stop-color="#5C4880"/>
+    </linearGradient>
+    <linearGradient id="mtnDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#6A5890"/>
+      <stop offset="100%" stop-color="#3E2C60"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#48C8CC"/>
+      <stop offset="100%" stop-color="#28A0A8"/>
+    </linearGradient>
+    <linearGradient id="shore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#70A040"/>
+      <stop offset="100%" stop-color="#4A7828"/>
+    </linearGradient>
+    <linearGradient id="lupP" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%"   stop-color="#5A2078"/>
+      <stop offset="100%" stop-color="#9848B8"/>
+    </linearGradient>
+    <linearGradient id="lupPk" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%"   stop-color="#A02878"/>
+      <stop offset="100%" stop-color="#E050A0"/>
+    </linearGradient>
+    <linearGradient id="lupW" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%"   stop-color="#B8B0D0"/>
+      <stop offset="100%" stop-color="#EEE8F8"/>
+    </linearGradient>
+    <linearGradient id="lupY" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%"   stop-color="#C89020"/>
+      <stop offset="100%" stop-color="#F0C840"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══ SKY ══ -->
+  <rect width="750" height="1334" fill="url(#sky)"/>
+
+  <!-- ══ BIRDS (pied stilts silhouettes) ══ -->
+  <!-- Each bird: simple elongated body + wings in a V or M shape -->
+  <g fill="#1A1838">
+    <!-- Bird 1 -->
+    <ellipse cx="180" cy="88" rx="14" ry="5" transform="rotate(-8,180,88)"/>
+    <path d="M 166,86 Q 175,72 184,80" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 184,80 Q 193,72 202,86" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="186" y1="92" x2="183" y2="102" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <line x1="192" y1="92" x2="189" y2="102" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bird 2 -->
+    <ellipse cx="270" cy="62" rx="12" ry="4" transform="rotate(-5,270,62)"/>
+    <path d="M 258,60 Q 266,47 274,55" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 274,55 Q 282,47 290,60" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="275" y1="65" x2="272" y2="75" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <line x1="281" y1="65" x2="278" y2="75" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bird 3 -->
+    <ellipse cx="355" cy="48" rx="13" ry="4.5" transform="rotate(-4,355,48)"/>
+    <path d="M 342,46 Q 350,33 358,41" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 358,41 Q 366,33 374,46" stroke="#1A1838" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="358" y1="51" x2="355" y2="62" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <line x1="364" y1="51" x2="361" y2="62" stroke="#1A1838" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bird 4 -->
+    <ellipse cx="450" cy="70" rx="11" ry="4" transform="rotate(-6,450,70)"/>
+    <path d="M 439,68 Q 447,56 454,63" stroke="#1A1838" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 454,63 Q 461,56 469,68" stroke="#1A1838" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="454" y1="73" x2="452" y2="82" stroke="#1A1838" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="459" y1="73" x2="457" y2="82" stroke="#1A1838" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- Bird 5 (smaller, farther) -->
+    <ellipse cx="530" cy="52" rx="9" ry="3.5"/>
+    <path d="M 521,51 Q 527,41 533,47" stroke="#1A1838" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 533,47 Q 539,41 546,51" stroke="#1A1838" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Bird 6 (small) -->
+    <ellipse cx="600" cy="80" rx="8" ry="3"/>
+    <path d="M 592,79 Q 598,70 603,75" stroke="#1A1838" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 603,75 Q 608,70 616,79" stroke="#1A1838" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Bird 7 (tiny, far) -->
+    <ellipse cx="660" cy="58" rx="6" ry="2.5"/>
+    <path d="M 654,57 Q 659,50 663,54" stroke="#1A1838" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 663,54 Q 667,50 673,57" stroke="#1A1838" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Bird 8 (tiny) -->
+    <ellipse cx="118" cy="110" rx="7" ry="2.8"/>
+    <path d="M 111,109 Q 116,100 121,105" stroke="#1A1838" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M 121,105 Q 126,100 132,109" stroke="#1A1838" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ══ BACK MOUNTAINS (snow-capped, layered) ══ -->
+  <!-- Snow layer 1 — farthest, lightest -->
+  <path d="M 0,380 L 55,210 L 130,310 L 200,175 L 290,280 L 370,155 L 450,260 L 530,185 L 620,290 L 700,200 L 750,270 L 750,420 L 0,420 Z"
+    fill="url(#mtnSnow)"/>
+  <!-- Snow caps highlights -->
+  <polygon points="200,175 182,225 218,225" fill="#F8F5F0"/>
+  <polygon points="370,155 348,210 392,210" fill="#F8F5F0"/>
+  <polygon points="530,185 510,235 550,235" fill="#F5F2EC"/>
+  <polygon points="700,200 682,248 718,248" fill="#F5F2EC"/>
+
+  <!-- Purple mountains — mid layer -->
+  <path d="M 0,440 L 80,300 L 165,380 L 248,265 L 340,350 L 415,240 L 500,330 L 580,268 L 660,348 L 750,295 L 750,510 L 0,510 Z"
+    fill="url(#mtnPurple)"/>
+  <!-- Darker purple near mountains -->
+  <path d="M 0,510 L 90,400 L 180,460 L 270,390 L 360,450 L 440,385 L 520,440 L 620,400 L 700,448 L 750,415 L 750,580 L 0,580 Z"
+    fill="url(#mtnDark)"/>
+
+  <!-- ══ LAKE TEKAPO (vivid turquoise) ══ -->
+  <path d="M 0,565 Q 375,545 750,565 L 750,780 Q 375,795 0,780 Z" fill="url(#lake)"/>
+  <!-- Lake sheen / light reflection bands -->
+  <path d="M 40,620 Q 375,605 720,620"  stroke="rgba(255,255,255,0.18)" stroke-width="12" fill="none"/>
+  <path d="M 80,650 Q 375,635 680,650"  stroke="rgba(255,255,255,0.12)" stroke-width="8"  fill="none"/>
+  <path d="M 30,700 Q 375,685 730,700"  stroke="rgba(255,255,255,0.10)" stroke-width="6"  fill="none"/>
+  <path d="M 60,745 Q 375,730 700,745"  stroke="rgba(255,255,255,0.08)" stroke-width="4"  fill="none"/>
+  <!-- Mountain reflection in lake -->
+  <path d="M 0,580 L 90,640 L 180,610 L 270,648 L 360,622 L 440,652 L 520,625 L 620,648 L 700,628 L 750,640 L 750,780 L 0,780 Z"
+    fill="#28A0A8" opacity="0.45"/>
+
+  <!-- ══ SHORE / GREEN GROUND ══ -->
+  <path d="M 0,768 Q 375,752 750,768 L 750,900 Q 375,910 0,900 Z" fill="url(#shore)"/>
+  <!-- Darker foreground ground -->
+  <path d="M 0,885 Q 375,870 750,885 L 750,1334 L 0,1334 Z" fill="#3A6020"/>
+
+  <!-- ══ CHURCH OF THE GOOD SHEPHERD ══ -->
+  <g transform="translate(375,726)">
+    <!-- Foundation base -->
+    <rect x="-72" y="8" width="144" height="12" rx="2" fill="#B8AC9A"/>
+
+    <!-- Church body — warm stone -->
+    <rect x="-68" y="-105" width="136" height="113" fill="#D8CCBA"/>
+    <!-- Stone course lines (horizontal) -->
+    <line x1="-68" y1="-80" x2="68" y2="-80" stroke="#C8BCAA" stroke-width="1.5"/>
+    <line x1="-68" y1="-55" x2="68" y2="-55" stroke="#C8BCAA" stroke-width="1.5"/>
+    <line x1="-68" y1="-30" x2="68" y2="-30" stroke="#C8BCAA" stroke-width="1.5"/>
+
+    <!-- Pitched roof -->
+    <polygon points="-74,-105 74,-105 0,-155" fill="#7A3C18"/>
+    <!-- Roof ridge -->
+    <line x1="0" y1="-155" x2="0" y2="-105" stroke="#6A3010" stroke-width="2"/>
+
+    <!-- Cross -->
+    <rect x="-4" y="-188" width="8"  height="38" rx="2" fill="#D8CCBA"/>
+    <rect x="-13" y="-175" width="26" height="8"  rx="2" fill="#D8CCBA"/>
+
+    <!-- Front gable arch window (the iconic one) -->
+    <rect x="-22" y="-98" width="44" height="58" fill="#68C0C4"/>
+    <path d="M -22,-98 Q -22,-124 0,-124 Q 22,-124 22,-98" fill="#68C0C4"/>
+    <!-- Window leading cross -->
+    <line x1="0" y1="-124" x2="0" y2="-40" stroke="#D8CCBA" stroke-width="2.5"/>
+    <line x1="-22" y1="-82" x2="22" y2="-82" stroke="#D8CCBA" stroke-width="2"/>
+    <!-- Window frame -->
+    <path d="M -22,-98 Q -22,-124 0,-124 Q 22,-124 22,-98 L 22,-40 L -22,-40 Z"
+      stroke="#C8BCAA" stroke-width="2" fill="none"/>
+
+    <!-- Left side window -->
+    <rect x="-60" y="-90" width="24" height="32" rx="2" fill="#68C0C4"/>
+    <path d="M -60,-90 Q -60,-104 -48,-104 Q -36,-104 -36,-90" fill="#68C0C4"/>
+    <line x1="-48" y1="-104" x2="-48" y2="-58" stroke="#D0C4B2" stroke-width="1.8"/>
+    <line x1="-60" y1="-76" x2="-36" y2="-76" stroke="#D0C4B2" stroke-width="1.5"/>
+
+    <!-- Right side window -->
+    <rect x="36" y="-90" width="24" height="32" rx="2" fill="#68C0C4"/>
+    <path d="M 36,-90 Q 36,-104 48,-104 Q 60,-104 60,-90" fill="#68C0C4"/>
+    <line x1="48" y1="-104" x2="48" y2="-58" stroke="#D0C4B2" stroke-width="1.8"/>
+    <line x1="36" y1="-76" x2="60" y2="-76" stroke="#D0C4B2" stroke-width="1.5"/>
+
+    <!-- Front door (arched) -->
+    <rect x="-14" y="-40" width="28" height="40" fill="#6A4020"/>
+    <path d="M -14,-40 Q -14,-58 0,-58 Q 14,-58 14,-40" fill="#6A4020"/>
+    <!-- Door panel detail -->
+    <rect x="-10" y="-38" width="10" height="18" rx="1" fill="#5A3418" opacity="0.6"/>
+    <rect x="2"   y="-38" width="10" height="18" rx="1" fill="#5A3418" opacity="0.6"/>
+    <!-- Door handle -->
+    <circle cx="-3" cy="-18" r="2.5" fill="#A07840"/>
+
+    <!-- Buttress / corner pilasters -->
+    <rect x="-72" y="-108" width="10" height="116" fill="#C8BCAA"/>
+    <rect x="62"  y="-108" width="10" height="116" fill="#C8BCAA"/>
+  </g>
+
+  <!-- ══ LUPINS — back row (small, far) ══ -->
+  <g opacity="0.75">
+    <!-- Purple -->
+    <g transform="translate(60,878)"><rect x="-3" y="-55" width="6" height="55" fill="#2A5818"/><ellipse cx="0" cy="-55" rx="7" ry="30" fill="#7840A0"/><ellipse cx="-4" cy="-45" rx="4" ry="18" fill="#9050B8" opacity="0.6"/></g>
+    <g transform="translate(140,872)"><rect x="-3" y="-62" width="6" height="62" fill="#2A5818"/><ellipse cx="0" cy="-62" rx="8" ry="34" fill="#6830A0"/><ellipse cx="4" cy="-50" rx="4" ry="20" fill="#8840B0" opacity="0.55"/></g>
+    <g transform="translate(220,880)"><rect x="-3" y="-52" width="6" height="52" fill="#2A5818"/><ellipse cx="0" cy="-52" rx="7" ry="28" fill="#C03888"/></g>
+    <g transform="translate(300,875)"><rect x="-3" y="-58" width="6" height="58" fill="#2A5818"/><ellipse cx="0" cy="-58" rx="7" ry="32" fill="#7840A0"/></g>
+    <g transform="translate(380,870)"><rect x="-3" y="-65" width="6" height="65" fill="#2A5818"/><ellipse cx="0" cy="-65" rx="8" ry="36" fill="#E8E0F0"/></g>
+    <g transform="translate(460,876)"><rect x="-3" y="-58" width="6" height="58" fill="#2A5818"/><ellipse cx="0" cy="-58" rx="7" ry="32" fill="#6830A0"/></g>
+    <g transform="translate(540,872)"><rect x="-3" y="-62" width="6" height="62" fill="#2A5818"/><ellipse cx="0" cy="-62" rx="8" ry="34" fill="#D040A0"/></g>
+    <g transform="translate(620,880)"><rect x="-3" y="-55" width="6" height="55" fill="#2A5818"/><ellipse cx="0" cy="-55" rx="7" ry="30" fill="#7840A0"/></g>
+    <g transform="translate(700,874)"><rect x="-3" y="-60" width="6" height="60" fill="#2A5818"/><ellipse cx="0" cy="-60" rx="8" ry="33" fill="#C03888"/></g>
+  </g>
+
+  <!-- ══ LUPINS — mid row ══ -->
+  <!-- Purple L -->
+  <g transform="translate(22,958)">
+    <rect x="-4" y="-80" width="8" height="80" fill="#2A5818"/>
+    <ellipse cx="0" cy="-80" rx="11" ry="44" fill="url(#lupP)"/>
+    <ellipse cx="-6" cy="-68" rx="6"  ry="27" fill="#9048B8" opacity="0.5"/>
+    <ellipse cx=" 6" cy="-70" rx="6"  ry="30" fill="#A858C0" opacity="0.4"/>
+    <ellipse cx="-20" cy="-36" rx="20" ry="7" fill="#2A5818" transform="rotate(-30,-20,-36)"/>
+    <ellipse cx=" 20" cy="-30" rx="20" ry="7" fill="#386820" transform="rotate( 30, 20,-30)"/>
+  </g>
+  <!-- Pink -->
+  <g transform="translate(82,965)">
+    <rect x="-4" y="-72" width="8" height="72" fill="#2A5818"/>
+    <ellipse cx="0" cy="-72" rx="10" ry="40" fill="url(#lupPk)"/>
+    <ellipse cx="5"  cy="-60" rx="6"  ry="25" fill="#D040A0" opacity="0.45"/>
+    <ellipse cx="-18" cy="-34" rx="18" ry="6" fill="#2A5818" transform="rotate(-28,-18,-34)"/>
+    <ellipse cx=" 18" cy="-28" rx="18" ry="6" fill="#386820" transform="rotate( 28, 18,-28)"/>
+  </g>
+  <!-- White/pale -->
+  <g transform="translate(148,955)">
+    <rect x="-4" y="-85" width="8" height="85" fill="#2A5818"/>
+    <ellipse cx="0" cy="-85" rx="11" ry="46" fill="url(#lupW)"/>
+    <ellipse cx="-6" cy="-72" rx="6"  ry="28" fill="#D8D0E8" opacity="0.5"/>
+    <ellipse cx="-20" cy="-40" rx="20" ry="7" fill="#2A5818" transform="rotate(-30,-20,-40)"/>
+    <ellipse cx=" 20" cy="-34" rx="20" ry="7" fill="#386820" transform="rotate( 30, 20,-34)"/>
+  </g>
+  <!-- Purple -->
+  <g transform="translate(215,962)">
+    <rect x="-4" y="-75" width="8" height="75" fill="#2A5818"/>
+    <ellipse cx="0" cy="-75" rx="11" ry="42" fill="url(#lupP)"/>
+    <ellipse cx=" 6" cy="-63" rx="6"  ry="26" fill="#8848B8" opacity="0.48"/>
+    <ellipse cx=" 20" cy="-36" rx="20" ry="7" fill="#386820" transform="rotate( 28, 20,-36)"/>
+    <ellipse cx="-20" cy="-30" rx="20" ry="7" fill="#2A5818" transform="rotate(-28,-20,-30)"/>
+  </g>
+  <!-- Pink -->
+  <g transform="translate(278,958)">
+    <rect x="-4" y="-80" width="8" height="80" fill="#2A5818"/>
+    <ellipse cx="0" cy="-80" rx="11" ry="44" fill="url(#lupPk)"/>
+    <ellipse cx="-6" cy="-66" rx="6"  ry="27" fill="#C830A0" opacity="0.45"/>
+    <ellipse cx="-20" cy="-38" rx="20" ry="7" fill="#2A5818" transform="rotate(-30,-20,-38)"/>
+    <ellipse cx=" 20" cy="-32" rx="20" ry="7" fill="#386820" transform="rotate( 30, 20,-32)"/>
+  </g>
+  <!-- Yellow -->
+  <g transform="translate(340,965)">
+    <rect x="-4" y="-70" width="8" height="70" fill="#2A5818"/>
+    <ellipse cx="0" cy="-70" rx="10" ry="38" fill="url(#lupY)"/>
+    <ellipse cx=" 5" cy="-58" rx="6"  ry="23" fill="#E8C020" opacity="0.45"/>
+    <ellipse cx=" 18" cy="-32" rx="18" ry="6" fill="#386820" transform="rotate( 26, 18,-32)"/>
+    <ellipse cx="-18" cy="-26" rx="18" ry="6" fill="#2A5818" transform="rotate(-26,-18,-26)"/>
+  </g>
+  <!-- White -->
+  <g transform="translate(402,955)">
+    <rect x="-4" y="-82" width="8" height="82" fill="#2A5818"/>
+    <ellipse cx="0" cy="-82" rx="11" ry="45" fill="url(#lupW)"/>
+    <ellipse cx="-6" cy="-68" rx="6"  ry="27" fill="#E0D8F0" opacity="0.45"/>
+    <ellipse cx="-20" cy="-38" rx="20" ry="7" fill="#2A5818" transform="rotate(-30,-20,-38)"/>
+    <ellipse cx=" 20" cy="-32" rx="20" ry="7" fill="#386820" transform="rotate( 30, 20,-32)"/>
+  </g>
+  <!-- Purple -->
+  <g transform="translate(462,960)">
+    <rect x="-4" y="-78" width="8" height="78" fill="#2A5818"/>
+    <ellipse cx="0" cy="-78" rx="11" ry="43" fill="url(#lupP)"/>
+    <ellipse cx=" 6" cy="-65" rx="6"  ry="27" fill="#9050C0" opacity="0.48"/>
+    <ellipse cx=" 20" cy="-36" rx="20" ry="7" fill="#386820" transform="rotate( 28, 20,-36)"/>
+    <ellipse cx="-20" cy="-30" rx="20" ry="7" fill="#2A5818" transform="rotate(-28,-20,-30)"/>
+  </g>
+  <!-- Pink -->
+  <g transform="translate(528,963)">
+    <rect x="-4" y="-74" width="8" height="74" fill="#2A5818"/>
+    <ellipse cx="0" cy="-74" rx="10" ry="41" fill="url(#lupPk)"/>
+    <ellipse cx="-5" cy="-61" rx="5"  ry="25" fill="#D040A8" opacity="0.45"/>
+    <ellipse cx="-18" cy="-35" rx="18" ry="6" fill="#2A5818" transform="rotate(-28,-18,-35)"/>
+    <ellipse cx=" 18" cy="-29" rx="18" ry="6" fill="#386820" transform="rotate( 28, 18,-29)"/>
+  </g>
+  <!-- Purple -->
+  <g transform="translate(592,956)">
+    <rect x="-4" y="-82" width="8" height="82" fill="#2A5818"/>
+    <ellipse cx="0" cy="-82" rx="11" ry="45" fill="url(#lupP)"/>
+    <ellipse cx="-6" cy="-68" rx="6"  ry="28" fill="#8040B0" opacity="0.5"/>
+    <ellipse cx="-20" cy="-38" rx="20" ry="7" fill="#2A5818" transform="rotate(-30,-20,-38)"/>
+    <ellipse cx=" 20" cy="-32" rx="20" ry="7" fill="#386820" transform="rotate( 30, 20,-32)"/>
+  </g>
+  <!-- Yellow -->
+  <g transform="translate(652,962)">
+    <rect x="-4" y="-72" width="8" height="72" fill="#2A5818"/>
+    <ellipse cx="0" cy="-72" rx="10" ry="39" fill="url(#lupY)"/>
+    <ellipse cx=" 5" cy="-60" rx="5"  ry="23" fill="#D8B018" opacity="0.45"/>
+    <ellipse cx=" 18" cy="-33" rx="18" ry="6" fill="#386820" transform="rotate( 26, 18,-33)"/>
+    <ellipse cx="-18" cy="-27" rx="18" ry="6" fill="#2A5818" transform="rotate(-26,-18,-27)"/>
+  </g>
+  <!-- White -->
+  <g transform="translate(718,958)">
+    <rect x="-4" y="-78" width="8" height="78" fill="#2A5818"/>
+    <ellipse cx="0" cy="-78" rx="11" ry="43" fill="url(#lupW)"/>
+    <ellipse cx=" 6" cy="-65" rx="6"  ry="26" fill="#D8D0F0" opacity="0.44"/>
+    <ellipse cx=" 20" cy="-36" rx="20" ry="7" fill="#386820" transform="rotate( 28, 20,-36)"/>
+    <ellipse cx="-20" cy="-30" rx="20" ry="7" fill="#2A5818" transform="rotate(-28,-20,-30)"/>
+  </g>
+
+  <!-- ══ LUPINS — front row (large) ══ -->
+  <g transform="translate(0,1068)">
+    <!-- P -->
+    <g transform="translate(40,0)"><rect x="-5" y="-110" width="10" height="110" fill="#224518"/><ellipse cx="0" cy="-110" rx="14" ry="60" fill="url(#lupP)"/><ellipse cx="-8" cy="-94" rx="8" ry="38" fill="#9048B8" opacity="0.45"/><ellipse cx=" 8" cy="-96" rx="8" ry="40" fill="#A858C8" opacity="0.38"/><ellipse cx="-26" cy="-50" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-50)"/><ellipse cx=" 26" cy="-42" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-42)"/></g>
+    <!-- Pk -->
+    <g transform="translate(118,8)"><rect x="-5" y="-95" width="10" height="95" fill="#224518"/><ellipse cx="0" cy="-95" rx="13" ry="52" fill="url(#lupPk)"/><ellipse cx=" 7" cy="-80" rx="7"  ry="33" fill="#D038A8" opacity="0.42"/><ellipse cx="-24" cy="-45" rx="24" ry="8" fill="#224518" transform="rotate(-30,-24,-45)"/><ellipse cx=" 24" cy="-38" rx="24" ry="8" fill="#386820" transform="rotate( 30, 24,-38)"/></g>
+    <!-- W -->
+    <g transform="translate(196,0)"><rect x="-5" y="-115" width="10" height="115" fill="#224518"/><ellipse cx="0" cy="-115" rx="14" ry="63" fill="url(#lupW)"/><ellipse cx="-8" cy="-98" rx="8"  ry="40" fill="#D8D0F0" opacity="0.42"/><ellipse cx="-26" cy="-54" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-54)"/><ellipse cx=" 26" cy="-46" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-46)"/></g>
+    <!-- P -->
+    <g transform="translate(272,4)"><rect x="-5" y="-105" width="10" height="105" fill="#224518"/><ellipse cx="0" cy="-105" rx="14" ry="58" fill="url(#lupP)"/><ellipse cx=" 8" cy="-90" rx="8"  ry="37" fill="#8840B8" opacity="0.45"/><ellipse cx=" 26" cy="-50" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-50)"/><ellipse cx="-26" cy="-44" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-44)"/></g>
+    <!-- Y -->
+    <g transform="translate(346,8)"><rect x="-5" y="-95" width="10" height="95" fill="#224518"/><ellipse cx="0" cy="-95" rx="13" ry="52" fill="url(#lupY)"/><ellipse cx="-7" cy="-80" rx="7"  ry="32" fill="#D8B018" opacity="0.42"/><ellipse cx="-24" cy="-45" rx="24" ry="8" fill="#224518" transform="rotate(-30,-24,-45)"/><ellipse cx=" 24" cy="-38" rx="24" ry="8" fill="#386820" transform="rotate( 30, 24,-38)"/></g>
+    <!-- Pk -->
+    <g transform="translate(420,2)"><rect x="-5" y="-108" width="10" height="108" fill="#224518"/><ellipse cx="0" cy="-108" rx="14" ry="59" fill="url(#lupPk)"/><ellipse cx=" 8" cy="-92" rx="8"  ry="37" fill="#C830A0" opacity="0.43"/><ellipse cx=" 26" cy="-52" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-52)"/><ellipse cx="-26" cy="-46" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-46)"/></g>
+    <!-- W -->
+    <g transform="translate(494,6)"><rect x="-5" y="-98" width="10" height="98" fill="#224518"/><ellipse cx="0" cy="-98" rx="13" ry="54" fill="url(#lupW)"/><ellipse cx="-7" cy="-83" rx="7"  ry="34" fill="#E0D8F0" opacity="0.42"/><ellipse cx="-24" cy="-46" rx="24" ry="8" fill="#224518" transform="rotate(-30,-24,-46)"/><ellipse cx=" 24" cy="-40" rx="24" ry="8" fill="#386820" transform="rotate( 30, 24,-40)"/></g>
+    <!-- P -->
+    <g transform="translate(568,0)"><rect x="-5" y="-112" width="10" height="112" fill="#224518"/><ellipse cx="0" cy="-112" rx="14" ry="61" fill="url(#lupP)"/><ellipse cx="-8" cy="-96" rx="8"  ry="39" fill="#9048C0" opacity="0.45"/><ellipse cx="-26" cy="-52" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-52)"/><ellipse cx=" 26" cy="-44" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-44)"/></g>
+    <!-- Pk -->
+    <g transform="translate(640,5)"><rect x="-5" y="-100" width="10" height="100" fill="#224518"/><ellipse cx="0" cy="-100" rx="13" ry="55" fill="url(#lupPk)"/><ellipse cx=" 7" cy="-85" rx="7"  ry="34" fill="#D038A0" opacity="0.42"/><ellipse cx=" 24" cy="-47" rx="24" ry="8" fill="#386820" transform="rotate( 30, 24,-47)"/><ellipse cx="-24" cy="-41" rx="24" ry="8" fill="#224518" transform="rotate(-30,-24,-41)"/></g>
+    <!-- Y -->
+    <g transform="translate(714,2)"><rect x="-5" y="-106" width="10" height="106" fill="#224518"/><ellipse cx="0" cy="-106" rx="14" ry="58" fill="url(#lupY)"/><ellipse cx=" 8" cy="-90" rx="8"  ry="36" fill="#D0A810" opacity="0.42"/><ellipse cx=" 26" cy="-50" rx="26" ry="9" fill="#386820" transform="rotate( 32, 26,-50)"/><ellipse cx="-26" cy="-44" rx="26" ry="9" fill="#224518" transform="rotate(-32,-26,-44)"/></g>
+  </g>
+
+  <!-- ══ LUPINS — very front (tall, cropped at edges) ══ -->
+  <g transform="translate(0,1200)">
+    <g transform="translate(-10,0)"><rect x="-6" y="-140" width="12" height="140" fill="#1A3A10"/><ellipse cx="0" cy="-140" rx="17" ry="80" fill="url(#lupP)"/></g>
+    <g transform="translate(80,0)"><rect x="-6" y="-130" width="12" height="130" fill="#1A3A10"/><ellipse cx="0" cy="-130" rx="16" ry="74" fill="url(#lupPk)"/></g>
+    <g transform="translate(175,0)"><rect x="-6" y="-145" width="12" height="145" fill="#1A3A10"/><ellipse cx="0" cy="-145" rx="18" ry="82" fill="url(#lupW)"/></g>
+    <g transform="translate(268,0)"><rect x="-6" y="-135" width="12" height="135" fill="#1A3A10"/><ellipse cx="0" cy="-135" rx="17" ry="76" fill="url(#lupP)"/></g>
+    <g transform="translate(360,0)"><rect x="-6" y="-128" width="12" height="128" fill="#1A3A10"/><ellipse cx="0" cy="-128" rx="16" ry="72" fill="url(#lupY)"/></g>
+    <g transform="translate(455,0)"><rect x="-6" y="-142" width="12" height="142" fill="#1A3A10"/><ellipse cx="0" cy="-142" rx="17" ry="80" fill="url(#lupPk)"/></g>
+    <g transform="translate(548,0)"><rect x="-6" y="-132" width="12" height="132" fill="#1A3A10"/><ellipse cx="0" cy="-132" rx="16" ry="74" fill="url(#lupP)"/></g>
+    <g transform="translate(640,0)"><rect x="-6" y="-138" width="12" height="138" fill="#1A3A10"/><ellipse cx="0" cy="-138" rx="17" ry="78" fill="url(#lupW)"/></g>
+    <g transform="translate(760,0)"><rect x="-6" y="-130" width="12" height="130" fill="#1A3A10"/><ellipse cx="0" cy="-130" rx="16" ry="74" fill="url(#lupPk)"/></g>
+  </g>
+
+</svg>
