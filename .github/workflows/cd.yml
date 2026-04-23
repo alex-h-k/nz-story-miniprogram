@@ -1,0 +1,56 @@
+name: CD
+
+on:
+  push:
+    branches: [master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Upload to WeChat
+    runs-on: ubuntu-latest
+    # Skips gracefully if secrets are not yet configured
+    if: ${{ vars.WECHAT_APPID != '' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for WeChat miniprogram
+        run: npm run build:weapp
+
+      - name: Install miniprogram-ci
+        run: npm install -g miniprogram-ci
+
+      - name: Write WeChat private key
+        run: echo "$WECHAT_PRIVATE_KEY" > private.key
+        env:
+          WECHAT_PRIVATE_KEY: ${{ secrets.WECHAT_PRIVATE_KEY }}
+
+      - name: Upload to WeChat platform
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          SHORT_SHA="${GITHUB_SHA::7}"
+          miniprogram-ci upload \
+            --pp ./dist \
+            --pkp ./private.key \
+            --appid "$WECHAT_APPID" \
+            --v "$VERSION" \
+            --r 1 \
+            --desc "Auto-deployed from GitHub Actions (${SHORT_SHA})"
+        env:
+          WECHAT_APPID: ${{ vars.WECHAT_APPID }}
+
+      - name: Clean up private key
+        if: always()
+        run: rm -f private.key
