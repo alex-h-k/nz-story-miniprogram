@@ -551,6 +551,23 @@ describe('TripForm — 个人出行 grouping preference', () => {
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
+
+  it('isRainbow resets to empty when groupType changes after being set', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('情侣'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+  })
+
+  it('isRainbow resets when groupingPref switches to 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    expect(screen.queryByText('是否属于彩虹群体？')).not.toBeInTheDocument()
+  })
 })
 
 // ── Step 2 — route mode ───────────────────────────────────────────────────────

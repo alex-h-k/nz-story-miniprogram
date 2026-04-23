@@ -322,6 +322,7 @@ export default function TripForm() {
     groupSize: '',          // auto '1' solo, '2' couple, picker for family/friends
     groupingPref: '',       // 'solo_group' | 'join_group'
     groupIdentity: '',      // 'male' | 'female' | 'mixed' | 'rainbow'  (我们是)
+    isRainbow: '',          // solo join_group only: 'yes' | 'no'
     companionPref: '',      // 'any' | 'female_only' | 'rainbow_friendly'  (希望和)
     childCount: '',         // family/friends only: number of children (string)
     ageGroup: '',           // 18-25 / 26-35 / 36-45 / 46-55 / 55+
@@ -348,6 +349,7 @@ export default function TripForm() {
       groupSize: id === 'solo' ? '1' : id === 'couple' ? '2' : '',
       groupingPref: '',
       groupIdentity: '',
+      isRainbow: '',
       companionPref: '',
       childCount: '',
       ageGroup: '',
@@ -362,6 +364,7 @@ export default function TripForm() {
       groupingPref: pref,
       ...(pref === 'solo_group' ? {
         groupIdentity: '',
+        isRainbow: '',
         companionPref: '',
         preferredAgeGroup: '',
         preferredTotalSize: '',
@@ -372,6 +375,14 @@ export default function TripForm() {
         Taro.pageScrollTo({ selector: '.join-group-prefs', offsetTop: -20, duration: 300 })
       }, 100)
     }
+  }
+
+  const handleIsRainbow = (val) => {
+    setForm(prev => ({
+      ...prev,
+      isRainbow: val,
+      companionPref: val === 'yes' ? 'rainbow_friendly' : '',
+    }))
   }
 
   // Returns the numeric own group size for min-total calculation
