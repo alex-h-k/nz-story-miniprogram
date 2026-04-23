@@ -170,7 +170,8 @@ describe('TripForm — step 1 fields', () => {
     expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('shows toast and blocks navigation when departureDate is missing', () => {
@@ -311,8 +312,8 @@ describe('TripForm — step 1 group composition validation', () => {
     expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('does not show join_group fields when 单独成团 selected (couple)', () => {
@@ -403,13 +404,13 @@ describe('TripForm — groupIdentity and companionPref', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('groupIdentity and companionPref shown for 个人出行 after selecting 愿意和他人组团', () => {
+  it('solo shows 我的性别 (not 我们是) after selecting 愿意和他人组团', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
-    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('我的性别')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 })
 
@@ -493,14 +494,13 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('shows full join_group preference fields when solo selects 愿意和他人组团', () => {
+  it('shows 我的性别 (not 我们是) when solo selects 愿意和他人组团', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
-    expect(screen.getByText('偏好同行者年龄段')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('solo selecting 愿意和他人组团 triggers scroll to .join-group-prefs', () => {

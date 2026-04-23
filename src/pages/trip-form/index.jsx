@@ -664,23 +664,41 @@ export default function TripForm() {
                 </View>
               </View>
 
-              <View className='field'>
-                <Text className='field__label'>我们是</Text>
-                <View className='tag-group tag-group--wrap'>
-                  {[
-                    { id: 'male',    label: '男生团' },
-                    { id: 'female',  label: '女生团' },
-                    { id: 'mixed',   label: '男女混合' },
-                    { id: 'rainbow', label: '彩虹群体' },
-                  ].map(item => (
-                    <View key={item.id}
-                      className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
-                      onClick={() => updateForm('groupIdentity', item.id)}>
-                      {item.label}
-                    </View>
-                  ))}
+              {form.groupType === 'solo' ? (
+                <View className='field'>
+                  <Text className='field__label'>我的性别</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {[
+                      { id: 'male',   label: '男生' },
+                      { id: 'female', label: '女生' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
+                        onClick={() => setForm(prev => ({ ...prev, groupIdentity: item.id, isRainbow: '', companionPref: '' }))}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
                 </View>
-              </View>
+              ) : (
+                <View className='field'>
+                  <Text className='field__label'>我们是</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {[
+                      { id: 'male',    label: '男生团' },
+                      { id: 'female',  label: '女生团' },
+                      { id: 'mixed',   label: '男女混合' },
+                      { id: 'rainbow', label: '彩虹群体' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
+                        onClick={() => updateForm('groupIdentity', item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              )}
 
               <View className='field'>
                 <Text className='field__label'>希望和</Text>
