@@ -88,7 +88,7 @@ describe('TripForm — background image', () => {
 describe('TripForm — step 1 fields', () => {
   it('shows the group type options', () => {
     render(<TripForm />)
-    expect(screen.getByText('独自出行')).toBeInTheDocument()
+    expect(screen.getByText('个人出行')).toBeInTheDocument()
     expect(screen.getByText('情侣')).toBeInTheDocument()
     expect(screen.getByText('家庭')).toBeInTheDocument()
     expect(screen.getByText('朋友')).toBeInTheDocument()
@@ -105,22 +105,24 @@ describe('TripForm — step 1 fields', () => {
 
   it('does NOT show 出行人员性别构成 for solo', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('出行人员性别构成')).not.toBeInTheDocument()
   })
 
-  it('does NOT show 成团方式 for solo', () => {
+  it('shows 成团方式 for 个人出行', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
-    expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.getByText('成团方式')).toBeInTheDocument()
+    expect(screen.getByText('单独成团')).toBeInTheDocument()
+    expect(screen.getByText('愿意和他人组团')).toBeInTheDocument()
   })
 
-  it('shows join_group preference fields for solo (auto-joins group)', () => {
+  it('does NOT show join_group prefs immediately for 个人出行 — must choose groupingPref first', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
-    expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
   // ── Non-solo shows grouping pref ──────────────────────────────────────────
@@ -161,12 +163,12 @@ describe('TripForm — step 1 fields', () => {
     expect(prefTags).toEqual(['不介意', '纯女生', '彩虹友好'])
   })
 
-  it('solo shows join_group prefs but not 成团方式 (auto-joins)', () => {
+  it('solo shows 成团方式 and reveals join_group prefs only after 愿意和他人组团 is selected', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
-    // Solo skips 成团方式 selector — it auto-joins
-    expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
-    // But join_group prefs are shown since solo always joins a group
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.getByText('成团方式')).toBeInTheDocument()
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
     expect(screen.getByText('我们是')).toBeInTheDocument()
   })
@@ -226,7 +228,7 @@ describe('TripForm — step 1 group composition validation', () => {
   it('blocks on missing groupType after groupType field is visible', () => {
     render(<TripForm />)
     // Verify groupType options are present (field renders)
-    expect(screen.getByText('独自出行')).toBeInTheDocument()
+    expect(screen.getByText('个人出行')).toBeInTheDocument()
     expect(screen.getByText('情侣')).toBeInTheDocument()
     expect(screen.getByText('家庭')).toBeInTheDocument()
     expect(screen.getByText('朋友')).toBeInTheDocument()
@@ -270,7 +272,7 @@ describe('TripForm — step 1 group composition validation', () => {
 
   it('does not show childCount for solo type', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
 
@@ -288,10 +290,10 @@ describe('TripForm — step 1 group composition validation', () => {
     expect(screen.getByText('愿意和他人组团')).toBeInTheDocument()
   })
 
-  it('does NOT show groupingPref field for solo', () => {
+  it('shows groupingPref 成团方式 field for 个人出行', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
-    expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.getByText('成团方式')).toBeInTheDocument()
   })
 
   it('shows join_group preference fields when 愿意和他人组团 selected (non-solo)', () => {
@@ -303,9 +305,11 @@ describe('TripForm — step 1 group composition validation', () => {
     expect(screen.getByText('希望和')).toBeInTheDocument()
   })
 
-  it('solo shows join_group prefs after groupType selection (auto-joins)', () => {
+  it('solo join_group prefs appear only after selecting 愿意和他人组团', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
     expect(screen.getByText('我们是')).toBeInTheDocument()
     expect(screen.getByText('希望和')).toBeInTheDocument()
@@ -399,10 +403,11 @@ describe('TripForm — groupIdentity and companionPref', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('groupIdentity and companionPref are shown for solo traveller choosing 拼团', () => {
+  it('groupIdentity and companionPref shown for 个人出行 after selecting 愿意和他人组团', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
-    // Solo auto-sets groupingPref = join_group, so fields should appear
+    fireEvent.click(screen.getByText('个人出行'))
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('我们是')).toBeInTheDocument()
     expect(screen.getByText('希望和')).toBeInTheDocument()
   })
@@ -466,6 +471,85 @@ describe('TripForm — auto-scroll when 愿意和他人组团 selected', () => {
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('单独成团'))
     expect(container.querySelector('.join-group-prefs')).not.toBeInTheDocument()
+  })
+})
+
+// ── 个人出行 grouping preference ──────────────────────────────────────────────
+
+describe('TripForm — 个人出行 grouping preference', () => {
+  it('shows 单独成团 confirmation message when solo selects 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.getByText(/我们会为你单独安排成团/)).toBeInTheDocument()
+  })
+
+  it('does NOT show join_group prefs when solo selects 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+  })
+
+  it('shows full join_group preference fields when solo selects 愿意和他人组团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('你的年龄段')).toBeInTheDocument()
+    expect(screen.getByText('我们是')).toBeInTheDocument()
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('偏好同行者年龄段')).toBeInTheDocument()
+  })
+
+  it('solo selecting 愿意和他人组团 triggers scroll to .join-group-prefs', () => {
+    jest.useFakeTimers()
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    act(() => { jest.advanceTimersByTime(200) })
+    expect(Taro.pageScrollTo).toHaveBeenCalledWith(
+      expect.objectContaining({ selector: '.join-group-prefs' })
+    )
+    jest.useRealTimers()
+  })
+
+  it('solo selecting 单独成团 does NOT trigger scroll', () => {
+    jest.useFakeTimers()
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    act(() => { jest.advanceTimersByTime(200) })
+    expect(Taro.pageScrollTo).not.toHaveBeenCalled()
+    jest.useRealTimers()
+  })
+
+  it('validation blocks 下一步 for solo without groupingPref selection', () => {
+    render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('下一步'))
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择出发日期' })
+    )
+    expect(screen.getByText('成团方式')).toBeInTheDocument()
+  })
+
+  it('switching from 愿意和他人组团 back to 单独成团 hides join_group prefs', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('你的年龄段')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+  })
+
+  it('solo groupSize remains 1 — childCount field must not appear', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
 })
 
