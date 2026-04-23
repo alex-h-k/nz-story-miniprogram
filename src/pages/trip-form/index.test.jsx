@@ -474,6 +474,85 @@ describe('TripForm — auto-scroll when 愿意和他人组团 selected', () => {
   })
 })
 
+// ── 个人出行 grouping preference ──────────────────────────────────────────────
+
+describe('TripForm — 个人出行 grouping preference', () => {
+  it('shows 单独成团 confirmation message when solo selects 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.getByText(/我们会为你单独安排成团/)).toBeInTheDocument()
+  })
+
+  it('does NOT show join_group prefs when solo selects 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+  })
+
+  it('shows full join_group preference fields when solo selects 愿意和他人组团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('你的年龄段')).toBeInTheDocument()
+    expect(screen.getByText('我们是')).toBeInTheDocument()
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('偏好同行者年龄段')).toBeInTheDocument()
+  })
+
+  it('solo selecting 愿意和他人组团 triggers scroll to .join-group-prefs', () => {
+    jest.useFakeTimers()
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    act(() => { jest.advanceTimersByTime(200) })
+    expect(Taro.pageScrollTo).toHaveBeenCalledWith(
+      expect.objectContaining({ selector: '.join-group-prefs' })
+    )
+    jest.useRealTimers()
+  })
+
+  it('solo selecting 单独成团 does NOT trigger scroll', () => {
+    jest.useFakeTimers()
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    act(() => { jest.advanceTimersByTime(200) })
+    expect(Taro.pageScrollTo).not.toHaveBeenCalled()
+    jest.useRealTimers()
+  })
+
+  it('validation blocks 下一步 for solo without groupingPref selection', () => {
+    render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('下一步'))
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择出发日期' })
+    )
+    expect(screen.getByText('成团方式')).toBeInTheDocument()
+  })
+
+  it('switching from 愿意和他人组团 back to 单独成团 hides join_group prefs', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('你的年龄段')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+  })
+
+  it('solo groupSize remains 1 — childCount field must not appear', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
+  })
+})
+
 // ── Step 2 — route mode ───────────────────────────────────────────────────────
 
 describe('TripForm — step 2 route selection', () => {
