@@ -88,7 +88,7 @@ describe('TripForm — background image', () => {
 describe('TripForm — step 1 fields', () => {
   it('shows the group type options', () => {
     render(<TripForm />)
-    expect(screen.getByText('独自出行')).toBeInTheDocument()
+    expect(screen.getByText('个人出行')).toBeInTheDocument()
     expect(screen.getByText('情侣')).toBeInTheDocument()
     expect(screen.getByText('家庭')).toBeInTheDocument()
     expect(screen.getByText('朋友')).toBeInTheDocument()
@@ -105,19 +105,19 @@ describe('TripForm — step 1 fields', () => {
 
   it('does NOT show 出行人员性别构成 for solo', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('出行人员性别构成')).not.toBeInTheDocument()
   })
 
   it('does NOT show 成团方式 for solo', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
   })
 
   it('shows join_group preference fields for solo (auto-joins group)', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
     expect(screen.getByText('我们是')).toBeInTheDocument()
     expect(screen.getByText('希望和')).toBeInTheDocument()
@@ -163,7 +163,7 @@ describe('TripForm — step 1 fields', () => {
 
   it('solo shows join_group prefs but not 成团方式 (auto-joins)', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     // Solo skips 成团方式 selector — it auto-joins
     expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
     // But join_group prefs are shown since solo always joins a group
@@ -226,7 +226,7 @@ describe('TripForm — step 1 group composition validation', () => {
   it('blocks on missing groupType after groupType field is visible', () => {
     render(<TripForm />)
     // Verify groupType options are present (field renders)
-    expect(screen.getByText('独自出行')).toBeInTheDocument()
+    expect(screen.getByText('个人出行')).toBeInTheDocument()
     expect(screen.getByText('情侣')).toBeInTheDocument()
     expect(screen.getByText('家庭')).toBeInTheDocument()
     expect(screen.getByText('朋友')).toBeInTheDocument()
@@ -270,7 +270,7 @@ describe('TripForm — step 1 group composition validation', () => {
 
   it('does not show childCount for solo type', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
 
@@ -290,7 +290,7 @@ describe('TripForm — step 1 group composition validation', () => {
 
   it('does NOT show groupingPref field for solo', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('成团方式')).not.toBeInTheDocument()
   })
 
@@ -305,7 +305,7 @@ describe('TripForm — step 1 group composition validation', () => {
 
   it('solo shows join_group prefs after groupType selection (auto-joins)', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
     expect(screen.getByText('我们是')).toBeInTheDocument()
     expect(screen.getByText('希望和')).toBeInTheDocument()
@@ -401,7 +401,7 @@ describe('TripForm — groupIdentity and companionPref', () => {
 
   it('groupIdentity and companionPref are shown for solo traveller choosing 拼团', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('独自出行'))
+    fireEvent.click(screen.getByText('个人出行'))
     // Solo auto-sets groupingPref = join_group, so fields should appear
     expect(screen.getByText('我们是')).toBeInTheDocument()
     expect(screen.getByText('希望和')).toBeInTheDocument()
