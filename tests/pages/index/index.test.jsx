@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import Taro from '@tarojs/taro'
-import Index from './index'
+import Index from '../../../src/pages/index/index'
 
 beforeEach(() => {
   jest.clearAllMocks()

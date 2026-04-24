@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import Taro from '@tarojs/taro'
-import TripForm from './index'
-import Waiting from '../waiting/index'
+import TripForm from '../../../src/pages/trip-form/index'
+import Waiting from '../../../src/pages/waiting/index'
 
 beforeEach(() => {
   jest.clearAllMocks()
@@ -170,7 +170,8 @@ describe('TripForm — step 1 fields', () => {
     expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('shows toast and blocks navigation when departureDate is missing', () => {
@@ -208,20 +209,10 @@ describe('TripForm — step 1 group composition validation', () => {
   it('blocks on missing groupType after date is set', () => {
     const { container } = render(<TripForm />)
     pickDate(container)
-    // If date mock didn't fire, directly update via onChange — just click next
-    // The mock Picker fires onChange with value 0 which maps to index 0 of the date range.
-    // Instead: verify the correct toast fires in sequence.
-    // After departureDate toast (first click), we need groupType toast.
-    // Since we cannot easily set departureDate via mock, verify the full toast sequence.
     Taro.showToast.mockImplementation(() => {})
-    // Click once to trigger departureDate toast, then simulate that date is set
-    // by confirming groupType toast fires when groupType is the blocker.
-    // We use the fact that validation is sequential — test groupType toast fires
-    // when we simulate a component where only groupType is missing.
     fireEvent.click(screen.getByText('下一步'))
-    // First block is departureDate — that's already tested above
     expect(Taro.showToast).toHaveBeenCalledWith(
-      expect.objectContaining({ title: '请选择出发日期' })
+      expect.objectContaining({ title: '请选择出行人构成' })
     )
   })
 
@@ -311,8 +302,8 @@ describe('TripForm — step 1 group composition validation', () => {
     expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('does not show join_group fields when 单独成团 selected (couple)', () => {
@@ -403,13 +394,13 @@ describe('TripForm — groupIdentity and companionPref', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('groupIdentity and companionPref shown for 个人出行 after selecting 愿意和他人组团', () => {
+  it('solo shows 我的性别 (not 我们是) after selecting 愿意和他人组团', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
-    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('我的性别')).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('愿意和他人组团'))
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 })
 
@@ -493,14 +484,13 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('shows full join_group preference fields when solo selects 愿意和他人组团', () => {
+  it('shows 我的性别 (not 我们是) when solo selects 愿意和他人组团', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
-    expect(screen.getByText('偏好同行者年龄段')).toBeInTheDocument()
+    expect(screen.getByText('我的性别')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('solo selecting 愿意和他人组团 triggers scroll to .join-group-prefs', () => {
@@ -550,6 +540,143 @@ describe('TripForm — 个人出行 grouping preference', () => {
     fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
+  })
+
+  it('isRainbow resets to empty when groupType changes after being set', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('情侣'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+  })
+
+  it('isRainbow resets when groupingPref switches to 单独成团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('单独成团'))
+    expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
+    expect(screen.queryByText('是否属于彩虹群体？')).not.toBeInTheDocument()
+  })
+
+  it('是否属于彩虹群体 not shown until gender is selected', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('是否属于彩虹群体？')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+  })
+
+  it('是否属于彩虹群体 stays visible after changing gender', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('女生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+  })
+
+  it('changing gender after rainbow answer resets isRainbow and hides 希望和', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    fireEvent.click(screen.getByText('是'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+    // Changing gender must reset isRainbow → 希望和 hides again
+    fireEvent.click(screen.getByText('女生'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+  })
+
+  it('selecting 是 auto-selects 彩虹友好 and shows only that option in 希望和', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    fireEvent.click(screen.getByText('是'))
+    const prefSection = screen.getByText('希望和').closest('.field')
+    const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
+    expect(tags).toEqual(['彩虹友好'])
+    expect(prefSection.querySelector('.tag--active')?.textContent.trim()).toBe('彩虹友好')
+  })
+
+  it('selecting 否 shows all three 希望和 options and clears selection', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('女生'))
+    fireEvent.click(screen.getByText('否'))
+    const prefSection = screen.getByText('希望和').closest('.field')
+    const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
+    expect(tags).toEqual(['不介意', '纯女生', '彩虹友好'])
+    expect(prefSection.querySelector('.tag--active')).not.toBeInTheDocument()
+  })
+
+  it('希望和 not shown until isRainbow is selected for solo', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('否'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+  })
+
+  it('non-solo (couple) still shows 希望和 immediately after 愿意和他人组团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('情侣'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+  })
+
+  it('是否属于彩虹群体 field shows no active tag when isRainbow not yet selected', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    const section = screen.getByText('是否属于彩虹群体？').closest('.field')
+    expect(section.querySelector('.tag--active')).not.toBeInTheDocument()
+  })
+
+  it('non-solo groupIdentity toast says 请选择你们的群体类型', () => {
+    const { container } = render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(container.querySelector('[data-testid="picker"]'))
+    fireEvent.click(screen.getByText('情侣'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('下一步'))
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择你们的群体类型' })
+    )
+    expect(screen.getByText('我们是')).toBeInTheDocument()
+  })
+
+  it('solo groupIdentity validation fires 请选择你的性别 toast', () => {
+    const { container } = render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(container.querySelector('[data-testid="picker"]'))
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('下一步'))
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择你的性别' })
+    )
+  })
+
+  it('solo isRainbow validation fires 请选择是否属于彩虹群体 toast', () => {
+    const { container } = render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(container.querySelector('[data-testid="picker"]'))
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    fireEvent.click(screen.getByText('下一步'))
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择是否属于彩虹群体' })
+    )
   })
 })
 

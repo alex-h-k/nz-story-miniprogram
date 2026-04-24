@@ -322,6 +322,7 @@ export default function TripForm() {
     groupSize: '',          // auto '1' solo, '2' couple, picker for family/friends
     groupingPref: '',       // 'solo_group' | 'join_group'
     groupIdentity: '',      // 'male' | 'female' | 'mixed' | 'rainbow'  (我们是)
+    isRainbow: '',          // solo join_group only: 'yes' | 'no'
     companionPref: '',      // 'any' | 'female_only' | 'rainbow_friendly'  (希望和)
     childCount: '',         // family/friends only: number of children (string)
     ageGroup: '',           // 18-25 / 26-35 / 36-45 / 46-55 / 55+
@@ -348,6 +349,7 @@ export default function TripForm() {
       groupSize: id === 'solo' ? '1' : id === 'couple' ? '2' : '',
       groupingPref: '',
       groupIdentity: '',
+      isRainbow: '',
       companionPref: '',
       childCount: '',
       ageGroup: '',
@@ -362,6 +364,7 @@ export default function TripForm() {
       groupingPref: pref,
       ...(pref === 'solo_group' ? {
         groupIdentity: '',
+        isRainbow: '',
         companionPref: '',
         preferredAgeGroup: '',
         preferredTotalSize: '',
@@ -372,6 +375,14 @@ export default function TripForm() {
         Taro.pageScrollTo({ selector: '.join-group-prefs', offsetTop: -20, duration: 300 })
       }, 100)
     }
+  }
+
+  const handleIsRainbow = (val) => {
+    setForm(prev => ({
+      ...prev,
+      isRainbow: val,
+      companionPref: val === 'yes' ? 'rainbow_friendly' : '',
+    }))
   }
 
   // Returns the numeric own group size for min-total calculation
@@ -446,7 +457,14 @@ export default function TripForm() {
       return
     }
     if (step === 1 && form.groupingPref === 'join_group' && !form.groupIdentity) {
-      Taro.showToast({ title: '请选择你们的群体类型', icon: 'none' })
+      Taro.showToast({
+        title: form.groupType === 'solo' ? '请选择你的性别' : '请选择你们的群体类型',
+        icon: 'none',
+      })
+      return
+    }
+    if (step === 1 && form.groupType === 'solo' && form.groupingPref === 'join_group' && form.groupIdentity && !form.isRainbow) {
+      Taro.showToast({ title: '请选择是否属于彩虹群体', icon: 'none' })
       return
     }
     if (step === 1 && form.groupingPref === 'join_group' && !form.companionPref) {
@@ -653,40 +671,81 @@ export default function TripForm() {
                 </View>
               </View>
 
-              <View className='field'>
-                <Text className='field__label'>我们是</Text>
-                <View className='tag-group tag-group--wrap'>
-                  {[
-                    { id: 'male',    label: '男生团' },
-                    { id: 'female',  label: '女生团' },
-                    { id: 'mixed',   label: '男女混合' },
-                    { id: 'rainbow', label: '彩虹群体' },
-                  ].map(item => (
-                    <View key={item.id}
-                      className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
-                      onClick={() => updateForm('groupIdentity', item.id)}>
-                      {item.label}
-                    </View>
-                  ))}
+              {form.groupType === 'solo' ? (
+                <View className='field'>
+                  <Text className='field__label'>我的性别</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {[
+                      { id: 'male',   label: '男生' },
+                      { id: 'female', label: '女生' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
+                        onClick={() => setForm(prev => ({ ...prev, groupIdentity: item.id, isRainbow: '', companionPref: '' }))}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
                 </View>
-              </View>
+              ) : (
+                <View className='field'>
+                  <Text className='field__label'>我们是</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {[
+                      { id: 'male',    label: '男生团' },
+                      { id: 'female',  label: '女生团' },
+                      { id: 'mixed',   label: '男女混合' },
+                      { id: 'rainbow', label: '彩虹群体' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.groupIdentity === item.id ? 'tag--active' : ''}`}
+                        onClick={() => updateForm('groupIdentity', item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              )}
 
-              <View className='field'>
-                <Text className='field__label'>希望和</Text>
-                <View className='tag-group tag-group--wrap'>
-                  {[
-                    { id: 'any',              label: '不介意' },
-                    { id: 'female_only',      label: '纯女生' },
-                    { id: 'rainbow_friendly', label: '彩虹友好' },
-                  ].map(item => (
-                    <View key={item.id}
-                      className={`tag ${form.companionPref === item.id ? 'tag--active' : ''}`}
-                      onClick={() => updateForm('companionPref', item.id)}>
-                      {item.label}
-                    </View>
-                  ))}
+              {form.groupType === 'solo' && form.groupIdentity && (
+                <View className='field'>
+                  <Text className='field__label'>是否属于彩虹群体？</Text>
+                  <View className='tag-group'>
+                    {[
+                      { id: 'yes', label: '是' },
+                      { id: 'no',  label: '否' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.isRainbow === item.id ? 'tag--active' : ''}`}
+                        onClick={() => handleIsRainbow(item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
                 </View>
-              </View>
+              )}
+
+              {(form.groupType !== 'solo' || form.isRainbow) && (
+                <View className='field'>
+                  <Text className='field__label'>希望和</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {(form.groupType === 'solo' && form.isRainbow === 'yes'
+                      ? [{ id: 'rainbow_friendly', label: '彩虹友好' }]
+                      : [
+                          { id: 'any',              label: '不介意' },
+                          { id: 'female_only',      label: '纯女生' },
+                          { id: 'rainbow_friendly', label: '彩虹友好' },
+                        ]
+                    ).map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.companionPref === item.id ? 'tag--active' : ''}`}
+                        onClick={() => updateForm('companionPref', item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              )}
 
               <View className='field'>
                 <Text className='field__label'>偏好同行者年龄段</Text>
