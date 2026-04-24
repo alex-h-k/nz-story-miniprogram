@@ -14,6 +14,6 @@ module.exports = {
   Textarea: make('textarea'),
   Map:      make('div'),
   Picker:   ({ children, onChange, ...rest }) =>
-    React.createElement('div', { 'data-testid': 'picker', onClick: () => onChange?.({ detail: { value: 0 } }) }, children),
+    React.createElement('div', { 'data-testid': 'picker', onClick: () => onChange?.({ detail: { value: '2027-06-01' } }) }, children),
   ScrollView: make('div'),
 }
