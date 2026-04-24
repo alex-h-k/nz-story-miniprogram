@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['**/src/**/*.test.{js,jsx}'],
+  testMatch: ['**/tests/**/*.test.{js,jsx}'],
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest',
   },

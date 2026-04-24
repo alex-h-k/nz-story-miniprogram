@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import Taro from '@tarojs/taro'
-import TripForm from './index'
-import Waiting from '../waiting/index'
+import TripForm from '../../../src/pages/trip-form/index'
+import Waiting from '../../../src/pages/waiting/index'
 
 beforeEach(() => {
   jest.clearAllMocks()
