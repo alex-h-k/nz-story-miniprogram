@@ -2,3 +2,5 @@ node_modules/
 dist/
 .worktrees/
 docs/superpowers/
+.swc/
+CLAUDE.md
