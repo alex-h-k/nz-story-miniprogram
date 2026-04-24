@@ -588,6 +588,18 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
   })
 
+  it('changing gender after rainbow answer resets isRainbow and hides 希望和', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    fireEvent.click(screen.getByText('是'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+    // Changing gender must reset isRainbow → 希望和 hides again
+    fireEvent.click(screen.getByText('女生'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+  })
+
   it('selecting 是 auto-selects 彩虹友好 and shows only that option in 希望和', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
