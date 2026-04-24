@@ -700,22 +700,45 @@ export default function TripForm() {
                 </View>
               )}
 
-              <View className='field'>
-                <Text className='field__label'>希望和</Text>
-                <View className='tag-group tag-group--wrap'>
-                  {[
-                    { id: 'any',              label: '不介意' },
-                    { id: 'female_only',      label: '纯女生' },
-                    { id: 'rainbow_friendly', label: '彩虹友好' },
-                  ].map(item => (
-                    <View key={item.id}
-                      className={`tag ${form.companionPref === item.id ? 'tag--active' : ''}`}
-                      onClick={() => updateForm('companionPref', item.id)}>
-                      {item.label}
-                    </View>
-                  ))}
+              {form.groupType === 'solo' && form.groupIdentity && (
+                <View className='field'>
+                  <Text className='field__label'>是否属于彩虹群体？</Text>
+                  <View className='tag-group'>
+                    {[
+                      { id: 'yes', label: '是' },
+                      { id: 'no',  label: '否' },
+                    ].map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.isRainbow === item.id ? 'tag--active' : ''}`}
+                        onClick={() => handleIsRainbow(item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
                 </View>
-              </View>
+              )}
+
+              {(form.groupType !== 'solo' || form.isRainbow) && (
+                <View className='field'>
+                  <Text className='field__label'>希望和</Text>
+                  <View className='tag-group tag-group--wrap'>
+                    {(form.groupType === 'solo' && form.isRainbow === 'yes'
+                      ? [{ id: 'rainbow_friendly', label: '彩虹友好' }]
+                      : [
+                          { id: 'any',              label: '不介意' },
+                          { id: 'female_only',      label: '纯女生' },
+                          { id: 'rainbow_friendly', label: '彩虹友好' },
+                        ]
+                    ).map(item => (
+                      <View key={item.id}
+                        className={`tag ${form.companionPref === item.id ? 'tag--active' : ''}`}
+                        onClick={() => updateForm('companionPref', item.id)}>
+                        {item.label}
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              )}
 
               <View className='field'>
                 <Text className='field__label'>偏好同行者年龄段</Text>

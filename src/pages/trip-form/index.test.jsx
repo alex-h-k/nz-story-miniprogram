@@ -568,6 +568,67 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.queryByText('你的年龄段')).not.toBeInTheDocument()
     expect(screen.queryByText('是否属于彩虹群体？')).not.toBeInTheDocument()
   })
+
+  it('是否属于彩虹群体 not shown until gender is selected', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('是否属于彩虹群体？')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+  })
+
+  it('是否属于彩虹群体 stays visible after changing gender', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('女生'))
+    expect(screen.getByText('是否属于彩虹群体？')).toBeInTheDocument()
+  })
+
+  it('selecting 是 auto-selects 彩虹友好 and shows only that option in 希望和', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    fireEvent.click(screen.getByText('是'))
+    const prefSection = screen.getByText('希望和').closest('.field')
+    const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
+    expect(tags).toEqual(['彩虹友好'])
+    expect(prefSection.querySelector('.tag--active')?.textContent.trim()).toBe('彩虹友好')
+  })
+
+  it('selecting 否 shows all three 希望和 options and clears selection', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('女生'))
+    fireEvent.click(screen.getByText('否'))
+    const prefSection = screen.getByText('希望和').closest('.field')
+    const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
+    expect(tags).toEqual(['不介意', '纯女生', '彩虹友好'])
+    expect(prefSection.querySelector('.tag--active')).not.toBeInTheDocument()
+  })
+
+  it('希望和 not shown until isRainbow is selected for solo', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('男生'))
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('否'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+  })
+
+  it('non-solo (couple) still shows 希望和 immediately after 愿意和他人组团', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('情侣'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    expect(screen.getByText('希望和')).toBeInTheDocument()
+  })
 })
 
 // ── Step 2 — route mode ───────────────────────────────────────────────────────
