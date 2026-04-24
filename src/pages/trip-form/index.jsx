@@ -448,10 +448,6 @@ export default function TripForm() {
       Taro.showToast({ title: '请选择出行人数', icon: 'none' })
       return
     }
-    if (step === 1 && (form.groupType === 'family' || form.groupType === 'friends') && form.groupSize && form.childCount === '') {
-      Taro.showToast({ title: '请选择小孩人数', icon: 'none' })
-      return
-    }
     if (step === 1 && !form.groupingPref) {
       Taro.showToast({ title: '请选择成团方式', icon: 'none' })
       return
@@ -608,21 +604,6 @@ export default function TripForm() {
             </View>
           )}
 
-          {/* ── 小孩人数：家庭/朋友才显示 ── */}
-          {(form.groupType === 'family' || form.groupType === 'friends') && form.groupSize && (
-            <View className='field'>
-              <Text className='field__label'>其中小孩人数</Text>
-              <View className='tag-group tag-group--wrap'>
-                {Array.from({ length: getOwnGroupSizeNum() }, (_, i) => String(i)).map(n => (
-                  <View key={n}
-                    className={`tag ${form.childCount === n ? 'tag--active' : ''}`}
-                    onClick={() => handleChildCount(n)}>
-                    {n} 人
-                  </View>
-                ))}
-              </View>
-            </View>
-          )}
 
           {/* ── 成团方式 ── */}
           {form.groupType && (

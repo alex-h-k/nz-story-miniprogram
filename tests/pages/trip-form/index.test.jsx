@@ -243,29 +243,17 @@ describe('TripForm — step 1 group composition validation', () => {
     expect(screen.getByText('10+ 人')).toBeInTheDocument()
   })
 
-  it('shows childCount field for family after groupSize selected', () => {
+  it('does not show childCount for family after groupSize selected', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('家庭'))
     fireEvent.click(screen.getByText('3 人'))
-    expect(screen.getByText('其中小孩人数')).toBeInTheDocument()
-  })
-
-  it('shows childCount field for friends after groupSize selected', () => {
-    render(<TripForm />)
-    fireEvent.click(screen.getByText('朋友'))
-    fireEvent.click(screen.getByText('4 人'))
-    expect(screen.getByText('其中小孩人数')).toBeInTheDocument()
-  })
-
-  it('does not show childCount for solo type', () => {
-    render(<TripForm />)
-    fireEvent.click(screen.getByText('个人出行'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
 
-  it('does not show childCount for couple type', () => {
+  it('does not show childCount for friends after groupSize selected', () => {
     render(<TripForm />)
-    fireEvent.click(screen.getByText('情侣'))
+    fireEvent.click(screen.getByText('朋友'))
+    fireEvent.click(screen.getByText('4 人'))
     expect(screen.queryByText('其中小孩人数')).not.toBeInTheDocument()
   })
 
@@ -444,7 +432,6 @@ describe('TripForm — auto-scroll when 愿意和他人组团 selected', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('朋友'))
     fireEvent.click(screen.getByText('3 人'))
-    fireEvent.click(screen.getByText('0 人'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     act(() => { jest.advanceTimersByTime(200) })
     expect(Taro.pageScrollTo).toHaveBeenCalledWith(
