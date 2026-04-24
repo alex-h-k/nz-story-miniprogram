@@ -147,20 +147,16 @@ describe('TripForm — step 1 fields', () => {
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('shows correct options in 我们是 and 希望和 (couple)', () => {
+  it('non-solo join_group does not show gender or companion preference fields', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
-    const identitySection = screen.getByText('我们是').closest('.field')
-    const identityTags = [...identitySection.querySelectorAll('.tag')].map(el => el.textContent.trim())
-    expect(identityTags).toEqual(['男生团', '女生团', '男女混合', '彩虹群体'])
-    const prefSection = screen.getByText('希望和').closest('.field')
-    const prefTags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
-    expect(prefTags).toEqual(['不介意', '纯女生', '彩虹友好'])
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
   it('solo shows 成团方式 and reveals join_group prefs only after 愿意和他人组团 is selected', () => {
@@ -292,8 +288,8 @@ describe('TripForm — step 1 group composition validation', () => {
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('你的年龄段')).toBeInTheDocument()
-    expect(screen.getByText('我们是')).toBeInTheDocument()
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
   it('solo join_group prefs appear only after selecting 愿意和他人组团', () => {
@@ -326,8 +322,8 @@ describe('TripForm — step 1 group composition validation', () => {
 // ── Group identity and companion preference ──────────────────────────────────
 
 describe('TripForm — groupIdentity and companionPref', () => {
-  const selectJoinGroup = () => {
-    fireEvent.click(screen.getByText('情侣'))
+  const selectSoloJoinGroup = () => {
+    fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
   }
 
@@ -342,51 +338,57 @@ describe('TripForm — groupIdentity and companionPref', () => {
     return section.querySelector('.tag--active')?.textContent.trim()
   }
 
-  it('selecting 男生团 marks it active', () => {
+  it('selecting 男生 marks it active in 我的性别', () => {
     render(<TripForm />)
-    selectJoinGroup()
-    clickTag('我们是', '男生团')
-    expect(activeTagIn('我们是')).toBe('男生团')
+    selectSoloJoinGroup()
+    clickTag('我的性别', '男生')
+    expect(activeTagIn('我的性别')).toBe('男生')
   })
 
-  it('selecting 彩虹群体 marks it active', () => {
+  it('selecting 女生 marks it active in 我的性别', () => {
     render(<TripForm />)
-    selectJoinGroup()
-    clickTag('我们是', '彩虹群体')
-    expect(activeTagIn('我们是')).toBe('彩虹群体')
+    selectSoloJoinGroup()
+    clickTag('我的性别', '女生')
+    expect(activeTagIn('我的性别')).toBe('女生')
   })
 
   it('selecting 纯女生 in 希望和 marks it active', () => {
     render(<TripForm />)
-    selectJoinGroup()
+    selectSoloJoinGroup()
+    clickTag('我的性别', '女生')
+    clickTag('是否属于彩虹群体？', '否')
     clickTag('希望和', '纯女生')
     expect(activeTagIn('希望和')).toBe('纯女生')
   })
 
   it('selecting 彩虹友好 in 希望和 marks it active', () => {
     render(<TripForm />)
-    selectJoinGroup()
+    selectSoloJoinGroup()
+    clickTag('我的性别', '男生')
+    clickTag('是否属于彩虹群体？', '是')
     clickTag('希望和', '彩虹友好')
     expect(activeTagIn('希望和')).toBe('彩虹友好')
   })
 
-  it('switching groupIdentity updates selection', () => {
+  it('switching gender updates selection', () => {
     render(<TripForm />)
-    selectJoinGroup()
-    clickTag('我们是', '女生团')
-    clickTag('我们是', '男女混合')
-    expect(activeTagIn('我们是')).toBe('男女混合')
+    selectSoloJoinGroup()
+    clickTag('我的性别', '女生')
+    clickTag('我的性别', '男生')
+    expect(activeTagIn('我的性别')).toBe('男生')
   })
 
   it('switching companionPref updates selection', () => {
     render(<TripForm />)
-    selectJoinGroup()
+    selectSoloJoinGroup()
+    clickTag('我的性别', '男生')
+    clickTag('是否属于彩虹群体？', '否')
     clickTag('希望和', '纯女生')
     clickTag('希望和', '不介意')
     expect(activeTagIn('希望和')).toBe('不介意')
   })
 
-  it('groupIdentity and companionPref are not shown when 单独成团 selected', () => {
+  it('gender and companionPref are not shown when 单独成团 selected', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('单独成团'))
@@ -590,7 +592,7 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
-  it('selecting 是 auto-selects 彩虹友好 and shows only that option in 希望和', () => {
+  it('selecting 是 shows all four 希望和 options with no auto-selection', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
@@ -598,11 +600,11 @@ describe('TripForm — 个人出行 grouping preference', () => {
     fireEvent.click(screen.getByText('是'))
     const prefSection = screen.getByText('希望和').closest('.field')
     const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
-    expect(tags).toEqual(['彩虹友好'])
-    expect(prefSection.querySelector('.tag--active')?.textContent.trim()).toBe('彩虹友好')
+    expect(tags).toEqual(['不介意', '纯男生', '纯女生', '彩虹友好'])
+    expect(prefSection.querySelector('.tag--active')).not.toBeInTheDocument()
   })
 
-  it('selecting 否 shows all three 希望和 options and clears selection', () => {
+  it('selecting 否 shows all four 希望和 options and clears selection', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('个人出行'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
@@ -610,7 +612,7 @@ describe('TripForm — 个人出行 grouping preference', () => {
     fireEvent.click(screen.getByText('否'))
     const prefSection = screen.getByText('希望和').closest('.field')
     const tags = [...prefSection.querySelectorAll('.tag')].map(el => el.textContent.trim())
-    expect(tags).toEqual(['不介意', '纯女生', '彩虹友好'])
+    expect(tags).toEqual(['不介意', '纯男生', '纯女生', '彩虹友好'])
     expect(prefSection.querySelector('.tag--active')).not.toBeInTheDocument()
   })
 
@@ -625,11 +627,11 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(screen.getByText('希望和')).toBeInTheDocument()
   })
 
-  it('non-solo (couple) still shows 希望和 immediately after 愿意和他人组团', () => {
+  it('non-solo (couple) does not show 希望和 after 愿意和他人组团', () => {
     render(<TripForm />)
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
-    expect(screen.getByText('希望和')).toBeInTheDocument()
+    expect(screen.queryByText('希望和')).not.toBeInTheDocument()
   })
 
   it('是否属于彩虹群体 field shows no active tag when isRainbow not yet selected', () => {
@@ -641,17 +643,17 @@ describe('TripForm — 个人出行 grouping preference', () => {
     expect(section.querySelector('.tag--active')).not.toBeInTheDocument()
   })
 
-  it('non-solo groupIdentity toast says 请选择你们的群体类型', () => {
+  it('non-solo join_group advances past identity/companion checks (no longer validated)', () => {
     const { container } = render(<TripForm />)
     Taro.showToast.mockImplementation(() => {})
     fireEvent.click(container.querySelector('[data-testid="picker"]'))
     fireEvent.click(screen.getByText('情侣'))
     fireEvent.click(screen.getByText('愿意和他人组团'))
     fireEvent.click(screen.getByText('下一步'))
-    expect(Taro.showToast).toHaveBeenCalledWith(
+    expect(Taro.showToast).not.toHaveBeenCalledWith(
       expect.objectContaining({ title: '请选择你们的群体类型' })
     )
-    expect(screen.getByText('我们是')).toBeInTheDocument()
+    expect(screen.queryByText('我们是')).not.toBeInTheDocument()
   })
 
   it('solo groupIdentity validation fires 请选择你的性别 toast', () => {
