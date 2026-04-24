@@ -457,7 +457,14 @@ export default function TripForm() {
       return
     }
     if (step === 1 && form.groupingPref === 'join_group' && !form.groupIdentity) {
-      Taro.showToast({ title: '请选择你们的群体类型', icon: 'none' })
+      Taro.showToast({
+        title: form.groupType === 'solo' ? '请选择你的性别' : '请选择你们的群体类型',
+        icon: 'none',
+      })
+      return
+    }
+    if (step === 1 && form.groupType === 'solo' && form.groupingPref === 'join_group' && form.groupIdentity && !form.isRainbow) {
+      Taro.showToast({ title: '请选择是否属于彩虹群体', icon: 'none' })
       return
     }
     if (step === 1 && form.groupingPref === 'join_group' && !form.companionPref) {

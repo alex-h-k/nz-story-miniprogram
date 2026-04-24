@@ -641,6 +641,29 @@ describe('TripForm — 个人出行 grouping preference', () => {
     fireEvent.click(screen.getByText('愿意和他人组团'))
     expect(screen.getByText('希望和')).toBeInTheDocument()
   })
+
+  it('是否属于彩虹群体 field shows no active tag when isRainbow not yet selected', () => {
+    render(<TripForm />)
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('男生'))
+    const section = screen.getByText('是否属于彩虹群体？').closest('.field')
+    expect(section.querySelector('.tag--active')).not.toBeInTheDocument()
+  })
+
+  it('non-solo groupIdentity toast says 请选择你们的群体类型 (unchanged)', () => {
+    render(<TripForm />)
+    Taro.showToast.mockImplementation(() => {})
+    fireEvent.click(screen.getByText('情侣'))
+    fireEvent.click(screen.getByText('愿意和他人组团'))
+    fireEvent.click(screen.getByText('下一步'))
+    // Sequential validation: departureDate fires first
+    expect(Taro.showToast).toHaveBeenCalledWith(
+      expect.objectContaining({ title: '请选择出发日期' })
+    )
+    // The 我们是 field is present (groupIdentity field visible for non-solo)
+    expect(screen.getByText('我们是')).toBeInTheDocument()
+  })
 })
 
 // ── Step 2 — route mode ───────────────────────────────────────────────────────
