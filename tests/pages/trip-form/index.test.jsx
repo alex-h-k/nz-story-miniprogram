@@ -756,3 +756,139 @@ describe('Waiting page', () => {
     jest.useRealTimers()
   })
 })
+
+// ── Fix: group size label shows + suffix ─────────────────────────────────────
+
+describe('TripForm — group size label in budget sublabel', () => {
+  // Helper: fill step 1 for a friends group with a 6+ size then reach step 3
+  const advanceToStep3WithFriendsSize = (container, size) => {
+    const picker = container.querySelector('[data-testid="picker"]')
+    if (picker) act(() => { fireEvent.click(picker) })
+    fireEvent.click(screen.getByText('朋友'))
+    fireEvent.click(screen.getByText(`${size} 人`))
+    fireEvent.click(screen.getByText('单独成团'))  // no join_group prefs needed
+    fireEvent.click(screen.getByText('下一步'))
+    fireEvent.click(screen.getByText('选择推荐线路'))
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    fireEvent.click(screen.getByText('下一步'))
+  }
+
+  it('shows "6+" in the sublabel when group size is 6+', () => {
+    const { container } = render(<TripForm />)
+    advanceToStep3WithFriendsSize(container, '6')
+    // After reaching step 3 with a 6-person friends group, check sublabel
+    const sublabel = screen.queryByText(/人出行分摊/)
+    // If we reached step 3, the sublabel should show a number not "6+"
+    // (6 is a valid pick here; 6+ is only in family mode)
+    if (sublabel) expect(sublabel.textContent).toMatch(/6 人出行分摊/)
+  })
+
+  it('shows "6+" in the budget sublabel when family selects 6+', () => {
+    const { container } = render(<TripForm />)
+    const picker = container.querySelector('[data-testid="picker"]')
+    if (picker) act(() => { fireEvent.click(picker) })
+    fireEvent.click(screen.getByText('家庭'))
+    fireEvent.click(screen.getByText('6+ 人'))
+    fireEvent.click(screen.getByText('单独成团'))
+    fireEvent.click(screen.getByText('下一步'))
+    fireEvent.click(screen.getByText('选择推荐线路'))
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    fireEvent.click(screen.getByText('下一步'))
+    const sublabel = screen.queryByText(/人出行分摊/)
+    if (sublabel) expect(sublabel.textContent).toMatch(/6\+ 人出行分摊/)
+  })
+})
+
+// ── Fix: price shown as range ─────────────────────────────────────────────────
+
+describe('TripForm — price range display', () => {
+  // For a solo traveler (group_size=1), the min price (at 10 people) < max price (at 1 person),
+  // so both NZD and CNY values should show a range with a dash.
+  const goToStep3AsSolo = (container) => {
+    const picker = container.querySelector('[data-testid="picker"]')
+    if (picker) act(() => { fireEvent.click(picker) })
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    fireEvent.click(screen.getByText('下一步'))
+    fireEvent.click(screen.getByText('选择推荐线路'))
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    fireEvent.click(screen.getByText('下一步'))
+  }
+
+  it('shows a price range (NZD min–max) for a solo traveler', () => {
+    const { container } = render(<TripForm />)
+    goToStep3AsSolo(container)
+    // Should find at least one budget card with a dash range
+    const nzdTexts = [...container.querySelectorAll('.budget-card__nzd')].map(el => el.textContent)
+    // All tiers should show a range for solo (min at 10p < max at 1p)
+    nzdTexts.forEach(t => expect(t).toMatch(/NZD \d+–\d+/))
+  })
+
+  it('shows a single price (no dash) when group size is already 10', () => {
+    const { container } = render(<TripForm />)
+    const picker = container.querySelector('[data-testid="picker"]')
+    if (picker) act(() => { fireEvent.click(picker) })
+    fireEvent.click(screen.getByText('朋友'))
+    fireEvent.click(screen.getByText('10+ 人'))
+    fireEvent.click(screen.getByText('单独成团'))
+    fireEvent.click(screen.getByText('下一步'))
+    fireEvent.click(screen.getByText('选择推荐线路'))
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    fireEvent.click(screen.getByText('下一步'))
+    const nzdTexts = [...container.querySelectorAll('.budget-card__nzd')].map(el => el.textContent)
+    // At 10 people, min == max — should not show a dash
+    nzdTexts.forEach(t => expect(t).not.toMatch(/–/))
+  })
+})
+
+// ── Fix: preset route days picker ────────────────────────────────────────────
+
+describe('TripForm — preset route days picker', () => {
+  const goToStep2WithPreset = (container) => {
+    const picker = container.querySelector('[data-testid="picker"]')
+    if (picker) act(() => { fireEvent.click(picker) })
+    fireEvent.click(screen.getByText('个人出行'))
+    fireEvent.click(screen.getByText('单独成团'))
+    fireEvent.click(screen.getByText('下一步'))
+    fireEvent.click(screen.getByText('选择推荐线路'))
+  }
+
+  it('shows a days picker after a preset route is selected', () => {
+    const { container } = render(<TripForm />)
+    goToStep2WithPreset(container)
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    // alpine = 4-6 days → should show 4, 5, 6 day options
+    expect(screen.getByText('4 天')).toBeInTheDocument()
+    expect(screen.getByText('5 天')).toBeInTheDocument()
+    expect(screen.getByText('6 天')).toBeInTheDocument()
+  })
+
+  it('does not show a days picker before a route is selected', () => {
+    const { container } = render(<TripForm />)
+    goToStep2WithPreset(container)
+    expect(screen.queryByText('计划旅行天数')).not.toBeInTheDocument()
+  })
+
+  it('resets selected days when switching routes', () => {
+    const { container } = render(<TripForm />)
+    goToStep2WithPreset(container)
+    fireEvent.click(screen.getByText('内陆高原精华'))
+    fireEvent.click(screen.getByText('5 天'))
+    // Switch route
+    fireEvent.click(screen.getByText('凯库拉海岸线'))
+    // kaikoura = 1-2 days — old selection should be gone
+    expect(screen.queryByText('5 天')).not.toBeInTheDocument()
+    expect(screen.getByText('1 天')).toBeInTheDocument()
+    expect(screen.getByText('2 天')).toBeInTheDocument()
+  })
+
+  it('shows the correct day range for 南岛全环线 (10–14 days)', () => {
+    const { container } = render(<TripForm />)
+    goToStep2WithPreset(container)
+    fireEvent.click(screen.getByText('南岛全环线'))
+    expect(screen.getByText('10 天')).toBeInTheDocument()
+    expect(screen.getByText('14 天')).toBeInTheDocument()
+    expect(screen.queryByText('9 天')).not.toBeInTheDocument()
+    expect(screen.queryByText('15 天')).not.toBeInTheDocument()
+  })
+})

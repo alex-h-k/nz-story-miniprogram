@@ -11,7 +11,10 @@ const taro = {
   getCurrentInstance:      jest.fn(() => ({ router: { params: {} } })),
   useLoad:                 jest.fn(),
   useUnload:               jest.fn(),
+  useDidShow:              jest.fn(),
 }
 
-module.exports = taro
-module.exports.default = taro
+// __esModule: true tells Babel's interop to use this object directly.
+// `default` covers `import Taro from '@tarojs/taro'`.
+// Spreading taro covers named imports like `import { useDidShow } from '@tarojs/taro'`.
+module.exports = { __esModule: true, default: taro, ...taro }
