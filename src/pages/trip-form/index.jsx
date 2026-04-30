@@ -42,6 +42,7 @@ const PRESET_ROUTES = [
     id: 'kaikoura',
     label: '凯库拉海岸线',
     badge: '1-2 天',
+    minDays: 1, maxDays: 2,
     color: '#1a6aaa',
     center: { lat: -42.9, lon: 173.1 }, scale: 8,
     stops: [
@@ -63,6 +64,7 @@ const PRESET_ROUTES = [
     id: 'alpine',
     label: '内陆高原精华',
     badge: '4-6 天',
+    minDays: 4, maxDays: 6,
     color: '#1a7a4a',
     center: { lat: -44.3, lon: 170.0 }, scale: 7,
     stops: [
@@ -92,6 +94,7 @@ const PRESET_ROUTES = [
     id: 'southeast',
     label: '东南海岸回路',
     badge: '3-4 天',
+    minDays: 3, maxDays: 4,
     color: '#8a4a1a',
     center: { lat: -45.3, lon: 170.4 }, scale: 7,
     stops: [
@@ -117,6 +120,7 @@ const PRESET_ROUTES = [
     id: 'full_loop',
     label: '南岛全环线',
     badge: '10-14 天',
+    minDays: 10, maxDays: 14,
     color: '#6a1a8a',
     center: { lat: -44.2, lon: 170.2 }, scale: 6,
     stops: [
@@ -166,6 +170,7 @@ const PRESET_ROUTES = [
     id: 'fiordland',
     label: '峡湾深度游',
     badge: '3-5 天',
+    minDays: 3, maxDays: 5,
     color: '#0a6a8a',
     center: { lat: -45.1, lon: 168.0 }, scale: 7,
     stops: [
@@ -271,6 +276,14 @@ const BUDGET_TIERS = [
 // 每人每天 = (固定费 + 变动费 × 人数) / 人数
 const calcPerPersonPerDay = (tier, n) => Math.round((tier.fixed + tier.variable * n) / n)
 
+// Returns { min, max } per-person-per-day range.
+// min = price at full group of 10 (best case after matching)
+// max = price at current own group size (worst case, no one else joins)
+const calcPriceRange = (tier, ownSize) => ({
+  min: calcPerPersonPerDay(tier, 10),
+  max: calcPerPersonPerDay(tier, ownSize),
+})
+
 
 // Dominant sky colour per step — shown instantly before SVG decodes
 const BG_COLOR_BY_STEP = { 1: '#1a3a6a', 2: '#0a1e40', 3: '#2a1050' }
@@ -298,7 +311,7 @@ export default function TripForm() {
 
   // Fetch live NZD→CNY rate; skip in development (DevTools has no valid domain allowlist)
   // Fall back to 4.5 silently on any failure in production
-  useEffect(() => {
+  const fetchExchangeRate = () => {
     if (process.env.NODE_ENV === 'development') return
     try {
       Taro.request({
@@ -314,7 +327,10 @@ export default function TripForm() {
         fail: () => {},
       })
     } catch (_) {}
-  }, [])
+  }
+
+  useEffect(fetchExchangeRate, [])
+  Taro.useDidShow?.(fetchExchangeRate)
 
   const [form, setForm] = useState({
     departureDate: '',
@@ -330,7 +346,8 @@ export default function TripForm() {
     preferredTotalSize: '', // preferred total tour group size (>= own group size + 1, max 10)
     routeMode: '',       // 'preset' | 'custom'
     selectedRoute: '',
-    customDays: '',      // days for custom route (if different from step-1 days)
+    presetDays: '',      // days for preset route (within route's min–max range)
+    customDays: '',      // days for custom route
     budget: '',
     notes: '',
     contactType: '',     // 'self' | 'other'
@@ -385,11 +402,14 @@ export default function TripForm() {
     }))
   }
 
-  // Returns the numeric own group size for min-total calculation
+  // Returns the numeric floor of own group size (e.g. '6+' → 6)
   const getOwnGroupSizeNum = () => {
     const s = (form.groupSize || '1').replace('+', '')
     return parseInt(s) || 1
   }
+
+  // Returns the display label for group size (preserves '+' suffix when present)
+  const getOwnGroupSizeLabel = () => form.groupSize || '1'
 
   // Adults = total group size minus children
   const getAdultCount = () => {
@@ -405,6 +425,7 @@ export default function TripForm() {
       ...prev,
       routeMode: mode,
       selectedRoute: '',
+      presetDays: '',
       customDays: '',
     }))
   }
@@ -428,7 +449,7 @@ export default function TripForm() {
   }
 
   const handleRouteSelect = (routeId) => {
-    setForm(prev => ({ ...prev, selectedRoute: routeId }))
+    setForm(prev => ({ ...prev, selectedRoute: routeId, presetDays: '' }))
   }
 
   const handleNext = () => {
@@ -843,6 +864,31 @@ export default function TripForm() {
                   </View>
                 )
               })()}
+
+              {/* 预设线路天数选择 */}
+              {form.selectedRoute && (() => {
+                const route = PRESET_ROUTES.find(r => r.id === form.selectedRoute)
+                const days = Array.from(
+                  { length: route.maxDays - route.minDays + 1 },
+                  (_, i) => String(route.minDays + i)
+                )
+                return (
+                  <View className='field' style={{ marginTop: '24rpx' }}>
+                    <Text className='field__label'>计划旅行天数</Text>
+                    <View className='tag-group tag-group--wrap'>
+                      {days.map(d => (
+                        <View
+                          key={d}
+                          className={`tag ${form.presetDays === d ? 'tag--active' : ''}`}
+                          onClick={() => updateForm('presetDays', d)}
+                        >
+                          {d} 天
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                )
+              })()}
             </View>
           )}
 
@@ -890,12 +936,14 @@ export default function TripForm() {
           <View className='field'>
             <Text className='field__label'>预算区间（每人每天估算）</Text>
             <Text className='field__sublabel'>
-              按 {getOwnGroupSizeNum()} 人出行分摊 · 1 NZD ≈ {exchangeRate} CNY（实时汇率）
+              低值为 10 人满团价，高值为 {getOwnGroupSizeLabel()} 人自组团价 · 1 NZD ≈ {exchangeRate} CNY（实时汇率）
             </Text>
             <View className='budget-group'>
               {BUDGET_TIERS.map(tier => {
-                const nzd = calcPerPersonPerDay(tier, getOwnGroupSizeNum())
-                const cny = Math.round(nzd * exchangeRate)
+                const { min: nzdMin, max: nzdMax } = calcPriceRange(tier, getOwnGroupSizeNum())
+                const cnyMin = Math.round(nzdMin * exchangeRate)
+                const cnyMax = Math.round(nzdMax * exchangeRate)
+                const samePrice = nzdMin === nzdMax
                 const active = form.budget === tier.id
                 return (
                   <View
@@ -905,8 +953,12 @@ export default function TripForm() {
                   >
                     <Text className='budget-card__emoji'>{tier.emoji}</Text>
                     <Text className='budget-card__label'>{tier.label}</Text>
-                    <Text className='budget-card__nzd'>NZD {nzd}+</Text>
-                    <Text className='budget-card__cny'>≈ ¥{cny}+</Text>
+                    <Text className='budget-card__nzd'>
+                      {samePrice ? `NZD ${nzdMin}` : `NZD ${nzdMin}–${nzdMax}`}
+                    </Text>
+                    <Text className='budget-card__cny'>
+                      {samePrice ? `≈ ¥${cnyMin}` : `≈ ¥${cnyMin}–${cnyMax}`}
+                    </Text>
                     <Text className='budget-card__note'>{tier.note}</Text>
                   </View>
                 )
